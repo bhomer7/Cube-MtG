@@ -1,4 +1,3 @@
-
 A Magic the Gathering Sealed Cube
 ========================================
 Currently this is being built for a 5 person free for all sealed.
@@ -10,3 +9,21 @@ Viewing Lists
 ===========================================
 The .dec files can be directly imported into Decked Builder.
 Xmage can also import the files.
+
+Building Packs
+===========================================
+To build packs you
+* Deal 1 Random land 
+* Deal 1 Random rare 
+* Split the uncommons into allies, enemies, and other
+    - Deal 1 Random ally 
+    - Deal 1 Random other 
+    - Deal 1 Random from the uncommons remaining 
+* Split the commons into White, Blue, Black, Red, Green, and other
+    - Deal 1 Random White 
+    - Deal 1 Random Blue 
+    - Deal 1 Random Black 
+    - Deal 1 Random Red 
+    - Deal 1 Random Green 
+    - Deal 1 Random Other 
+    - Deal 4 Random from the commons remaining 

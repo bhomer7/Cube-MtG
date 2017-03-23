@@ -1,0 +1,24 @@
+Land:
+    total: 1
+    per-file: 1
+    duplication: 1
+
+Rare:
+    total: 1
+    per-file: 1
+    duplication: 1
+
+Uncommon:
+    total: 3
+    per-file: 1
+    rem-files: ['Enemies']
+    duplication: 2
+
+Common:
+    total: 10
+    per-file: 1
+    duplication: 4
+
+order: ['Land', 'Rare', 'Uncommon', 'Common']
+packs-per-player: 5
+players: 5

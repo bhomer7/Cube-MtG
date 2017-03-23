@@ -12,7 +12,9 @@ Xmage can also import the files.
 
 Building Packs
 ===========================================
-To build packs you
+You can build packs automatically with `./drafter.py` which will generate 5 
+
+To build packs manually you
 * Deal 1 Random land 
 * Deal 1 Random rare 
 * Split the uncommons into allies, enemies, and other

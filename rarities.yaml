@@ -21,4 +21,4 @@ Common:
 
 order: ['Land', 'Rare', 'Uncommon', 'Common']
 packs-per-player: 5
-players: 5
+players: 6

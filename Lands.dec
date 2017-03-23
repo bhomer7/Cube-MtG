@@ -6,6 +6,8 @@
 1 Blossoming Sands
 ///mvid:410038 qty:1 name:Choked Estuary loc:Deck
 1 Choked Estuary
+///mvid:121155 qty:1 name:Dark Depths loc:Deck
+1 Dark Depths
 ///mvid:249716 qty:1 name:Dragonskull Summit loc:Deck
 1 Dragonskull Summit
 ///mvid:249717 qty:1 name:Drowned Catacomb loc:Deck
@@ -26,6 +28,8 @@
 1 Hanweir Battlements
 ///mvid:169963 qty:1 name:Kabira Crossroads loc:Deck
 1 Kabira Crossroads
+///mvid:413784 qty:1 name:Mishra's Factory loc:Deck
+1 Mishra's Factory
 ///mvid:161276 qty:1 name:Mistvein Borderpost loc:Deck
 1 Mistvein Borderpost
 ///mvid:139515 qty:1 name:Mosswort Bridge loc:Deck
@@ -34,6 +38,10 @@
 1 Port Town
 ///mvid:177583 qty:1 name:Raging Ravine loc:Deck
 1 Raging Ravine
+///mvid:288876 qty:1 name:Reliquary Tower loc:Deck
+1 Reliquary Tower
+///mvid:398523 qty:1 name:Rogue's Passage loc:Deck
+1 Rogue's Passage
 ///mvid:249735 qty:1 name:Rootbound Crag loc:Deck
 1 Rootbound Crag
 ///mvid:189626 qty:1 name:Sejiri Refuge loc:Deck
@@ -46,5 +54,7 @@
 1 Veinfire Borderpost
 ///mvid:5263 qty:1 name:Volrath's Stronghold loc:Deck
 1 Volrath's Stronghold
+///mvid:410049 qty:1 name:Westvale Abbey loc:Deck
+1 Westvale Abbey
 ///mvid:179590 qty:1 name:Wildfield Borderpost loc:Deck
 1 Wildfield Borderpost

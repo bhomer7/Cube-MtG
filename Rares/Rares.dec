@@ -1,3 +1,5 @@
+///mvid:205957 qty:1 name:Ajani Goldmane loc:Deck
+1 Ajani Goldmane
 ///mvid:370627 qty:1 name:Archangel of Thune loc:Deck
 1 Archangel of Thune
 ///mvid:407661 qty:1 name:Ayli, Eternal Pilgrim loc:Deck
@@ -8,14 +10,22 @@
 1 Brion Stoutarm
 ///mvid:279608 qty:1 name:Champion of Lambholt loc:Deck
 1 Champion of Lambholt
+///mvid:195402 qty:1 name:Chandra Ablaze loc:Deck
+1 Chandra Ablaze
 ///mvid:290528 qty:1 name:Collective Blessing loc:Deck
 1 Collective Blessing
 ///mvid:380399 qty:1 name:Dictate of Erebos loc:Deck
 1 Dictate of Erebos
 ///mvid:380403 qty:1 name:Dictate of the Twin Gods loc:Deck
 1 Dictate of the Twin Gods
+///mvid:215080 qty:1 name:Engulfing Slagwurm loc:Deck
+1 Engulfing Slagwurm
+///mvid:401878 qty:1 name:Felidar Sovereign loc:Deck
+1 Felidar Sovereign
 ///mvid:370420 qty:1 name:Grand Arbiter Augustin IV loc:Deck
 1 Grand Arbiter Augustin IV
+///mvid:270960 qty:1 name:Grave Betrayal loc:Deck
+1 Grave Betrayal
 ///mvid:185812 qty:1 name:Malfegor loc:Deck
 1 Malfegor
 ///mvid:405295 qty:1 name:Mazirek, Kraul Death Priest loc:Deck
@@ -24,8 +34,6 @@
 1 Mogis, God of Slaughter
 ///mvid:23202 qty:1 name:Overabundance loc:Deck
 1 Overabundance
-///mvid:370798 qty:1 name:Path of Bravery loc:Deck
-1 Path of Bravery
 ///mvid:83201 qty:1 name:Phyrexian Arena loc:Deck
 1 Phyrexian Arena
 ///mvid:366416 qty:1 name:Prime Speaker Zegana loc:Deck
@@ -48,3 +56,5 @@
 1 Vile Consumption
 ///mvid:43614 qty:1 name:War Elemental loc:Deck
 1 War Elemental
+///mvid:370810 qty:1 name:Windreader Sphinx loc:Deck
+1 Windreader Sphinx

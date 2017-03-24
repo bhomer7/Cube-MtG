@@ -13,12 +13,13 @@
 #         the file names without extension to pull from. The second is how many of them should be special
 #         for each pack. The third is how many you include of those special subrarities. The final is how
 #         many to use of the non-special. For example:
-#         [[["White", "Blue", "Black", "Red", "Green"], 1, 2, 1]]
+#         [[['White', 'Blue', 'Black', 'Red', 'Green'], 1, 2, 1]]
 #         says that each path should include 2 of at least 1 color and at least 1 of the rest of the colors.
 #     duplication: <int> Required
 #         How many copies of each card in the files should be included at this rarity
 #     rem-files: <list> Optional. Defaults to empty list
 #         A list of files with an effective per-file of 0. They will only be used to fill the extra slots.
+# Note this will wipe everything in the results.bak dir and move the results dir to results.bak
 
 Land:
     total: 1
@@ -38,9 +39,10 @@ Uncommon:
 
 Common:
     total: 10
-    per-file: [[1, 2, 1, ["White", "Blue", "Black", "Red", "Green"]], [0, 0, 1, ["Multicoloreds", "Colorless"]]]
+    per-file: [[2, 3, 0, ['White', 'Blue', 'Black', 'Red', 'Green']], [1, 1, 1, ['Multicoloreds', 'Colorless']]]
     duplication: 4
 
 order: ['Land', 'Rare', 'Uncommon', 'Common']
-packs-per-player: 5
-players: 6
+packs-per-player: 4
+players: 8
+dest-dir: 'results'

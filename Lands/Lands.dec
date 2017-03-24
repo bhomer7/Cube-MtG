@@ -34,6 +34,8 @@
 1 Mistvein Borderpost
 ///mvid:139515 qty:1 name:Mosswort Bridge loc:Deck
 1 Mosswort Bridge
+///mvid:204978 qty:1 name:Mystifying Maze loc:Deck
+1 Mystifying Maze
 ///mvid:410046 qty:1 name:Port Town loc:Deck
 1 Port Town
 ///mvid:177583 qty:1 name:Raging Ravine loc:Deck
@@ -50,6 +52,8 @@
 1 Sunpetal Grove
 ///mvid:373734 qty:1 name:Temple of Deceit loc:Deck
 1 Temple of Deceit
+///mvid:21394 qty:1 name:Terrain Generator loc:Deck
+1 Terrain Generator
 ///mvid:189640 qty:1 name:Veinfire Borderpost loc:Deck
 1 Veinfire Borderpost
 ///mvid:5263 qty:1 name:Volrath's Stronghold loc:Deck

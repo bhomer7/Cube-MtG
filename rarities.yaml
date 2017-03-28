@@ -39,7 +39,7 @@ Uncommon:
 
 Common:
     total: 10
-    per-file: [[2, 3, 0, ['White', 'Blue', 'Black', 'Red', 'Green']], [1, 1, 1, ['Multicoloreds', 'Colorless']]]
+    per-file: [[2, 3, 0, ['White', 'Blue', 'Black', 'Red', 'Green']], [1, 1, 1, ['Allies', 'Colorless']]]
     duplication: 4
 
 order: ['Land', 'Rare', 'Uncommon', 'Common']

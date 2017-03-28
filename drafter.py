@@ -10,6 +10,8 @@ import yaml
 
 from collections import defaultdict
 
+from gatherer import get_color_identity
+
 
 def rare_index(r):
     """
@@ -52,6 +54,7 @@ def main(rarity_file='rarities.yaml'):
         return
     total_packs = rarity_config['packs-per-player'] * rarity_config['players']
     packs = [[] for _ in range(total_packs)]
+    pack_colors = [set() for _ in range(total_packs)]
     dest_dir = rarity_config['dest-dir']
     if os.path.exists('{}'.format(dest_dir)):
         if os.path.exists('{}.bak'.format(dest_dir)):
@@ -60,6 +63,7 @@ def main(rarity_file='rarities.yaml'):
         print('Moving {0:} to {0:}.bak'.format(dest_dir))
         shutil.move('{}'.format(dest_dir), '{}.bak'.format(dest_dir))
 
+    cards_to_colors = {}
     for rarity in rarity_config['order']:
         rare_files = glob.glob('{}s/*.dec'.format(rarity))
         rare_count_rem = defaultdict(dict)
@@ -74,6 +78,8 @@ def main(rarity_file='rarities.yaml'):
                     else:
                         cur_line += line
                         rare_count_rem[rare_index(rare_name)][cur_line] = duplication
+                        if (rarity == 'Rare' or rare_index(rare_name) == "Allies") and cur_line not in cards_to_colors:
+                            cards_to_colors[cur_line] = get_color_identity(cur_line)
                     comment = not comment
         use_rarities = [r for r in rare_count_rem.keys() if r not in rarity_config[rarity].get('rem-files', [])]
 
@@ -82,26 +88,33 @@ def main(rarity_file='rarities.yaml'):
             per_pack_with_index = {r: per_pack for r in use_rarities}
             if isinstance(per_pack, list):
                 for selections in per_pack:
-                    usable = [i for i, _ in enumerate(selections[3]) if
-                              valid_next_n(selections[3], i, selections[0],
+                    usable = [j for j, _ in enumerate(selections[3]) if
+                              valid_next_n(selections[3], j, selections[0],
                                            lambda x: exist_n_valid(rare_count_rem[x].items(), selections[0],
                                            lambda x:x[1] > 0))]
                     assert len(usable) > 0
                     fulli = random.choice(usable)
-                    full = [selections[3][(fulli + i) % len(selections[3])] for i in range(selections[0])]
+                    full = [selections[3][(fulli + j) % len(selections[3])] for j in range(selections[0])]
                     rest = [r for r in selections[3] if r not in full]
                     for r in full:
                         per_pack_with_index[r] = selections[1]
                     for r in rest:
                         per_pack_with_index[r] = selections[2]
             for rare_list in use_rarities:
-                the_list = [k for k, v in rare_count_rem[rare_list].items() if v > 0]
+                if rare_list == "Allies":
+                    the_list = [k for k, v in rare_count_rem[rare_list].items() if v > 0 and
+                                len(pack_colors[i]) == 0 or len(pack_colors[i] & cards_to_colors[k]) > 0]
+                else:
+                    the_list = [k for k, v in rare_count_rem[rare_list].items() if v > 0]
+                print(i, rarity, rare_list, the_list)
                 assert len(the_list) >= per_pack_with_index[rare_list]
                 random.shuffle(the_list)
                 for _ in range(per_pack_with_index[rare_list]):
                     card = the_list.pop()
                     pack.append(card)
                     rare_count_rem[rare_list][card] -= 1
+                    if rarity == 'Rare':
+                        pack_colors[i] = cards_to_colors[card]
 
         rem_list = []
         for ind, cnt in rare_count_rem.items():

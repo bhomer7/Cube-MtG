@@ -1,8 +1,11 @@
 A Magic the Gathering Sealed Cube
 ========================================
 Currently this is being built for a 10 person small multiplayer sealed.
+
 Packs are decided by the `.def` file used to create them. There are two included as they should be the most common needed
+
 `pack.def` creates packs suitable for pack wars as each pack will contain at most two colors
+
 `pool.def` is what we use for generating the sealed pools. It creates packs as follows:
 - Packs consist of 15 cards
 - There will be 1 of each land card
@@ -22,6 +25,7 @@ Packs are decided by the `.def` file used to create them. There are two included
 Viewing Lists
 ===========================================
 The .dec files can be directly imported into Decked Builder.
+
 Xmage can also import the files.
 
 Building Packs

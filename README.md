@@ -8,10 +8,12 @@ Packs are decided by the `.def` file used to create them. There are two included
 
 `pool.def` is what we use for generating the sealed pools. It creates packs as follows:
 - Packs consist of 15 cards
-- There will be 1 of each land card
-- There will be 1 of each rare card
-- There will be 2 of each uncommon
-- There will be 4 of each common
+- There will be 1 of each land and rare card in the pool
+- There will be 2 of each uncommon in the pool
+- There will be 4 of each common in the pool
+- There will be 1 Land and 1 Rare
+- There will be 3 Uncommons
+- There will be 10 Commons
 - Rares and Lands will be chosen with no bias
 - Uncommons will be chosen with the following requirements on each pack
     * There is at least 1 Ally colored card

@@ -286,8 +286,8 @@ def get_list(fname):
     return res
 
 
-def append(lst, val):
-    lst.append(val)
+def concatenate(lst, val):
+    return lst + val
 
 
 def intersects(a, b):
@@ -308,6 +308,7 @@ functions = {
     'Following': following,
     'GetColors': get_color,
     'GetList': get_list,
+    'Concatenate': concatenate
 }
 propositions = {
     'Intersects': intersects,

@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-import functools
+import pickle
+import os
 import urllib.request
 
 from bs4 import BeautifulSoup
-# Future Work. Cache everything to a file for reuse. Support looking up without mvid number
+# Future Work. Support looking up without mvid number
 
 
 def split_and_cut(s, txt, ind, *args):
@@ -33,7 +34,27 @@ def split_and_cut(s, txt, ind, *args):
 colors = ['White', 'Blue', 'Black', 'Red', 'Green', 'Colorless']
 
 
-@functools.lru_cache(maxsize=None)
+def disk_cache(cache_file):
+    def dec(fun):
+        cache = {}
+        if os.path.exists(cache_file):
+            with open(cache_file, 'rb') as inp:
+                cache = pickle.load(inp)
+
+        def f(*args):
+            res = cache.get(tuple(args), None)
+            if res is not None:
+                return res
+            res = fun(*args)
+            cache[tuple(args)] = res
+            with open(cache_file, 'wb') as inp:
+                pickle.dump(cache, inp)
+            return res
+        return f
+    return dec
+
+
+@disk_cache('color.cache')
 def get_color_identity(card_lines):
     """
     Get a set of colors in the cards color identity. Card passed as two lines from a dec file.

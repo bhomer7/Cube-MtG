@@ -1,12 +1,26 @@
 #!/usr/bin/env python3
+import glob
 import inspect
 import random
+
+from collections import defaultdict
 
 import ply.yacc as yacc
 import ply.lex as lex
 from ply.lex import TOKEN
 
+from gatherer import get_color_identity
+
 variables = {}
+DEBUG = True
+# Future Concepts: Repeat block, standalone functions(append)
+
+
+def rare_index(r):
+    """
+    Split off the index into the config from a filename.
+    """
+    return r.split('/')[-1].split('.')[0]
 
 
 class Node():
@@ -14,27 +28,68 @@ class Node():
         return None
 
 
+class RarityListNode(Node):
+    def __init__(self, lst):
+        self.lst = lst
+
+    def __str__(self):
+        str_nodes = []
+        for node in self.lst:
+            str_node = str(node)
+            str_nodes.append('\n'.join('\t' + ln for ln in str_node.split('\n')))
+        return "RarityListNode:\n" + '\n'.join(str_nodes)
+
+    def __repr__(self):
+        return str(self)
+
+    def eval(self, pack):
+        for node in self.lst:
+            node.eval(pack)
+        return True
+
+
 class RarityNode(Node):
-    def __init__(self, name, exprs):
+    def __init__(self, name, duplication, exprs):
         self.name = name
         self.exprs = exprs
-        # Add rarity_variables to variables dict
+        self.duplication = duplication
+        self.card_list = defaultdict(dict)
+        self.file_names = glob.glob(name + '/*.dec')
+        for fname in self.file_names:
+            with open(fname) as rare_file:
+                cur_line = ''
+                comment = True
+                for line in rare_file:
+                    if comment:
+                        cur_line = line
+                    else:
+                        cur_line += line
+                        self.card_list[rare_index(fname)][cur_line] = self.duplication
+                    comment = not comment
+        self.file_names = [rare_index(f) for f in self.file_names]
 
     def __str__(self):
         str_exprs = []
         for expr in self.exprs:
             str_expr = str(expr)
             str_exprs.append('\n'.join('\t' + ln for ln in str_expr.split('\n')))
-        res = "RarityNode: " + self.name + '\n' + '\n'.join(str_exprs)
+        res = "RarityNode: " + self.name + ' ' + str(self.duplication) + '\n' + '\n'.join(str_exprs)
         return res
 
     def __repr__(self):
         return str(self)
 
-    def eval(self, res, *args):
+    def eval(self, pack):
+        added_vars = ['FileNames', '_master_card_list']
+        variables['FileNames'] = self.file_names
+        variables['_master_card_list'] = self.card_list
+        # TODO Remove the used cards at the end
+
         for expr in self.exprs:
-            res = expr.eval(res, *args)
-        return res
+            expr.eval(pack)
+        for variable in added_vars:
+            del variables[variable]
+        return pack
 
 
 class FunctionNode(Node):
@@ -53,18 +108,18 @@ class FunctionNode(Node):
     def __repr__(self):
         return str(self)
 
-    def eval(self, *args):
-        return functions[self.fun](x.eval(*args) for x in self.args)
+    def eval(self, pack):
+        return functions[self.fun](*[x.eval(pack) for x in self.args])
 
 
 class AssignNode(Node):
-    def __init__(self, fun, target, val):
+    def __init__(self, fun, val, *targets):
         self.fun = fun
-        self.target = target
+        self.targets = targets
         self.val = val
 
     def __str__(self):
-        res = "AssignNode: " + self.fun.__name__ + ' ' + self.target
+        res = "AssignNode: " + self.fun.__name__ + ' ' + str(self.targets)
         str_val = str(self.val)
         res += '\n' + '\n'.join('\t' + ln for ln in str_val.split('\n'))
         return res
@@ -72,8 +127,8 @@ class AssignNode(Node):
     def __repr__(self):
         return str(self)
 
-    def eval(self, *args):
-        return self.fun(self.target, self.val.eval())
+    def eval(self, pack):
+        return self.fun(self.val.eval(pack), *self.targets)
 
 
 class AddNode(Node):
@@ -89,9 +144,8 @@ class AddNode(Node):
     def __repr__(self):
         return str(self)
 
-    # TODO: Implement
-    def eval(self, *args):
-        return None
+    def eval(self, pack):
+        pack.append(self.val.eval(pack))
 
 
 class IdNode(Node):
@@ -104,7 +158,7 @@ class IdNode(Node):
     def __repr__(self):
         return str(self)
 
-    def eval(self, *args):
+    def eval(self, pack):
         return variables[self.id]
 
 
@@ -113,18 +167,32 @@ class ConstantNode(Node):
         self.value = value
 
     def __str__(self):
-        return "ConstantNode: " + self.value
+        return "ConstantNode: " + str(self.value)
 
     def __repr__(self):
         return str(self)
 
-    def eval(self, *args):
+    def eval(self, pack):
         return self.value
 
 
+class AnyNode(Node):
+    def __str__(self):
+        return "AnyNode"
+
+    def __repr__(self):
+        return str(self)
+
+    def eval(self, pack):
+        combined_card_list = []
+        for _, lst in variables['_master_card_list'].items():
+            combined_card_list += [k for k, v in lst.items() if v > 0]
+        return combined_card_list
+
+
 class ComprehensionNode(Node):
-    def __init__(self, identifier, prop_list):
-        self.id = identifier
+    def __init__(self, source, prop_list):
+        self.source = source
         self.prop_list = prop_list
 
     def __str__(self):
@@ -132,26 +200,37 @@ class ComprehensionNode(Node):
         for prop in self.prop_list:
             str_prop = str(prop)
             str_props.append('\n'.join('\t' + ln for ln in str_prop.split('\n')))
-        res = "ComprehensionNode: " + self.identifier
+        res = "ComprehensionNode: " + str(self.source)
         res += '\n' + '\n'.join(str_props)
         return res
 
     def __repr__(self):
         return str(self)
 
-    def eval(self, *args):
-        lst = variables[self.id]
-        for i, val in enumerate(lst):
-            variables['X{}'.format(i)] = val
-        variables['X'] = lst
-
-        ret = [x for x in lst if all(prop.eval(*args) for prop in self.prop_list)]
-
-        for i, _ in enumerate(lst):
-            del variables['X{}'.format(i)]
-        del variables['X']
-
-        return ret
+    def eval(self, pack):
+        lst = self.source.eval(pack)
+        if len(lst) == 0:
+            return []
+        res = []
+        if isinstance(lst[0], (list, tuple)):
+            for x in lst:
+                added_variables = []
+                for i, val in enumerate(x):
+                    variables['X{}'.format(i)] = val
+                    added_variables.append('X{}'.format(i))
+                if all(prop.eval(pack) for prop in self.prop_list):
+                    res.append(x)
+                for var in added_variables:
+                    del variables[var]
+        else:
+            for x in lst:
+                variables['X'] = x
+                added_variables = ['X']
+                if all(prop.eval(pack) for prop in self.prop_list):
+                    res.append(x)
+                for var in added_variables:
+                    del variables[var]
+        return res
 
 
 class PropostionNode(Node):
@@ -161,7 +240,7 @@ class PropostionNode(Node):
         self.val2 = val2
 
     def __str__(self):
-        res = "PropositionNode: " + self.fun.__name__
+        res = "PropositionNode: " + self.fun
         str_val1 = str(self.val1)
         res += '\n' + '\n'.join('\t' + ln for ln in str_val1.split('\n'))
         str_val2 = str(self.val2)
@@ -171,13 +250,22 @@ class PropostionNode(Node):
     def __repr__(self):
         return str(self)
 
-    def eval(self, *args):
-        return propositions[self.fun](self.val1.eval(*args), self.val2.eval(*args))
+    def eval(self, pack):
+        return propositions[self.fun](self.val1.eval(pack), self.val2.eval(pack))
 
 
-def split_list(lst, *args):
-    for val, identifier in zip(lst, args):
+def split_list(lst, *ids):
+    for val, identifier in zip(lst, ids):
         variables[identifier] = val
+
+
+def random_assign(lst, identifier):
+    variables[identifier] = random.choice(lst)
+    lst.remove(variables[identifier])
+
+
+def update_variable(val, identifier):
+    variables[identifier] = val
 
 
 def rotate(lst, n):
@@ -188,18 +276,26 @@ def following(lst, val):
     return lst[(lst.index(val) + 1) % len(lst)]
 
 
-# TODO: Implement
 def get_color(cd):
-    return []
+    res = get_color_identity(cd)
+    return res
 
 
-# TODO: Implement
 def get_list(fname):
-    return []
+    res = [k for k, v in variables['_master_card_list'][fname].items() if v > 0]
+    return res
+
+
+def append(lst, val):
+    lst.append(val)
 
 
 def intersects(a, b):
     return len(set(a) & set(b)) > 0
+
+
+def subset(a, b):
+    return len(set(a) & set(b)) == len(a)
 
 
 def contains_at_least(a, n):
@@ -210,19 +306,28 @@ functions = {
     'Rotate': rotate,
     'Zip': zip,
     'Following': following,
-    'GetColor': get_color,
-    'GetList': get_list
+    'GetColors': get_color,
+    'GetList': get_list,
 }
 propositions = {
     'Intersects': intersects,
-    'ContainsAtLeast': contains_at_least
+    'ContainsAtLeast': contains_at_least,
+    'Subset': subset
 }
+
+
+def p_start(p):
+    """start : rarity_list"""
+    if DEBUG:
+        print(inspect.stack()[0][3])
+    p[0] = RarityListNode(p[1])
 
 
 def p_rarity_list(p):
     """rarity_list : rarity
                    | rarity_list rarity"""
-    print(inspect.stack()[0][3])
+    if DEBUG:
+        print(inspect.stack()[0][3])
     if len(p) == 3:
         p[0] = p[1] + [p[2]]
     else:
@@ -232,7 +337,8 @@ def p_rarity_list(p):
 def p_exprs_list(p):
     """exprs : expression
              | exprs expression"""
-    print(inspect.stack()[0][3])
+    if DEBUG:
+        print(inspect.stack()[0][3])
     if len(p) == 3:
         p[0] = p[1] + [p[2]]
     else:
@@ -240,33 +346,38 @@ def p_exprs_list(p):
 
 
 def p_rarity(p):
-    """rarity : RARITY_NAME exprs"""
-    print(inspect.stack()[0][3])
-    p[0] = RarityNode(p[1], p[2])
+    """rarity : RARITY_NAME INTEGER exprs"""
+    if DEBUG:
+        print(inspect.stack()[0][3])
+    p[0] = RarityNode(p[1], p[2], p[3])
 
 
 def p_assign_expression(p):
     """expression : ID ASSIGN val
                   | ID ASSIGN val_list"""
-    print(inspect.stack()[0][3])
-    p[0] = AssignNode(lambda x, y: variables.update((x, y)), p[1], p[3])
+    if DEBUG:
+        print(inspect.stack()[0][3])
+    p[0] = AssignNode(update_variable, p[3], p[1])
 
 
 def p_extract_expression(p):
     """expression : val EXTRACT ID"""
-    print(inspect.stack()[0][3])
-    p[0] = AssignNode(lambda x, y: variables.update((x, random.choice(y))), p[3], p[1])
+    if DEBUG:
+        print(inspect.stack()[0][3])
+    p[0] = AssignNode(random_assign, p[1], p[3])
 
 
 def p_split_expression(p):
     """expression : val SPLIT id_list"""
-    print(inspect.stack()[0][3])
-    p[0] = AssignNode(split_list, p[3], p[1])
+    if DEBUG:
+        print(inspect.stack()[0][3])
+    p[0] = AssignNode(split_list, p[1], *p[3])
 
 
 def p_add_expression(p):
     """expression : ADD LPAREN val RPAREN"""
-    print(inspect.stack()[0][3])
+    if DEBUG:
+        print(inspect.stack()[0][3])
     p[0] = AddNode(p[3])
 
 
@@ -277,7 +388,8 @@ def p_id_list(p):
                  | val_listp COMMA val
        prop_list : prop
                  | prop_list AND prop"""
-    print(inspect.stack()[0][3])
+    if DEBUG:
+        print(inspect.stack()[0][3])
     if len(p) == 4:
         p[0] = p[1] + [p[3]]
     else:
@@ -286,45 +398,59 @@ def p_id_list(p):
 
 def p_val_list(p):
     """val_list : LBRACKET val_listp RBRACKET"""
-    print(inspect.stack()[0][3])
+    if DEBUG:
+        print(inspect.stack()[0][3])
     p[0] = p[2]
 
 
 def p_val_id(p):
     """val : ID"""
-    print(inspect.stack()[0][3])
+    if DEBUG:
+        print(inspect.stack()[0][3])
     p[0] = IdNode(p[1])
+
+
+def p_val_any(p):
+    """val : ANY"""
+    if DEBUG:
+        print(inspect.stack()[0][3])
+    p[0] = AnyNode()
 
 
 def p_val_constant(p):
     """val : STRING
            | INTEGER"""
-    print(inspect.stack()[0][3])
+    if DEBUG:
+        print(inspect.stack()[0][3])
     p[0] = ConstantNode(p[1])
 
 
 def p_val_function(p):
     """val : FUNCTION LPAREN val_listp RPAREN"""
-    print(inspect.stack()[0][3])
+    if DEBUG:
+        print(inspect.stack()[0][3])
     p[0] = FunctionNode(p[1], p[3])
 
 
 def p_val_comprehension(p):
-    """val : LBRACKET ID WHERE prop_list RBRACKET"""
-    print(inspect.stack()[0][3])
-    p[0] = ComprehensionNode(p[2], p[4])
+    """val : LBRACKET val WHERE prop_list RBRACKET"""
+    if DEBUG:
+        print(inspect.stack()[0][3])
+    p[0] = ComprehensionNode(AnyNode(), p[4])
 
 
 def p_prop(p):
     """prop : PROPOSITION LPAREN val COMMA val RPAREN"""
-    print(inspect.stack()[0][3])
+    if DEBUG:
+        print(inspect.stack()[0][3])
     p[0] = PropostionNode(p[1], p[3], p[5])
 
 
 reserved = {
     'where': 'WHERE',
     'and': 'AND',
-    'Add': 'ADD'
+    'Add': 'ADD',
+    'Any': 'ANY'
 }
 for function in functions:
     reserved[function] = 'FUNCTION'
@@ -343,44 +469,49 @@ tokens = (
     'STRING',
     'INTEGER',
     'LPAREN',
-    'RPAREN'
+    'RPAREN',
+    'COMMENT'
 ) + tuple(set(reserved.values()))
 
 
 @TOKEN(r'[a-zA-Z]+:')
 def t_RARITY_NAME(tok):
-    print(inspect.stack()[0][3], tok.value)
+    if DEBUG:
+        print(inspect.stack()[0][3], tok)
     tok.value = tok.value[:-1]
     return tok
 
 
 @TOKEN(r"'[^']*'")
 def t_STRING(tok):
-    print(inspect.stack()[0][3], tok.value)
+    if DEBUG:
+        print(inspect.stack()[0][3], tok)
     tok.value = tok.value[1:-1]
     return tok
 
 
 @TOKEN(r'[0-9]+')
 def t_INTEGER(tok):
-    print(inspect.stack()[0][3], tok.value)
+    if DEBUG:
+        print(inspect.stack()[0][3], tok)
     tok.value = int(tok.value)
     return tok
 
 
 @TOKEN(r'[a-zA-Z]+')
 def t_ID(tok):
-    print(inspect.stack()[0][3], tok.value)
+    if DEBUG:
+        print(inspect.stack()[0][3], tok)
     if tok.value in reserved:
         tok.type = reserved[tok.value]
-
+    print(tok)
     return tok
 
 
-# @TOKEN('\ \\\t')
-# def t_IGNORED(tok):
-#     print(inspect.stack()[0][3], tok.value)
-#     pass
+@TOKEN(r'/\*.*\*/')
+def t_COMMENT(tok):
+    if DEBUG:
+        print(inspect.stack()[0][3], tok)
 
 
 t_ASSIGN = '='
@@ -393,12 +524,11 @@ t_LPAREN = r'\('
 t_RPAREN = r'\)'
 
 t_ignore = ' \t'
-# import re
-# print(re.search(r'(?m)^[(\ \ \ \ )\t]', 'test\n\tasdf'))
 
 
-# Error handling rulr
+# Error handling rule
 def t_error(t):
+    pass
     # print("Illegal character '%s'" % t.value[0])
     t.lexer.skip(1)
 
@@ -407,7 +537,7 @@ def p_error(p):
     if p:
         print("Syntax error at token", p.type, "line", p.lineno, p.lexpos)
         # Just discard the token and tell the parser it's okay.
-        parser.errok()
+        # parser.errok()
     else:
         print("Syntax error at EOF")
 

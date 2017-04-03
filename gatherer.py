@@ -1,6 +1,9 @@
+#!/usr/bin/env python3
+import functools
 import urllib.request
 
 from bs4 import BeautifulSoup
+# Future Work. Cache everything to a file for reuse. Support looking up without mvid number
 
 
 def split_and_cut(s, txt, ind, *args):
@@ -30,6 +33,7 @@ def split_and_cut(s, txt, ind, *args):
 colors = ['White', 'Blue', 'Black', 'Red', 'Green', 'Colorless']
 
 
+@functools.lru_cache(maxsize=None)
 def get_color_identity(card_lines):
     """
     Get a set of colors in the cards color identity. Card passed as two lines from a dec file.
@@ -51,7 +55,7 @@ def get_color_identity(card_lines):
             possibles = img.get('alt')
             if possibles is None:
                 continue
-            possibles.replace('Variable Colorless', '')
+            possibles = possibles.replace('Variable Colorless', '')
             for color in colors:
                 if color in possibles:
                     res.add(color)

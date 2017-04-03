@@ -1,9 +1,23 @@
 A Magic the Gathering Sealed Cube
 ========================================
-Currently this is being built for a 5 person free for all sealed.
-Packs consist of 15 cards
-There will be 1 of each rare card, 2 of each uncommon, and 4 of each common in
-the pool.
+Currently this is being built for a 10 person small multiplayer sealed.
+Packs are decided by the `.def` file used to create them. There are two included as they should be the most common needed
+`pack.def` creates packs suitable for pack wars as each pack will contain at most two colors
+`pool.def` is what we use for generating the sealed pools. It creates packs as follows:
+- Packs consist of 15 cards
+- There will be 1 of each land card
+- There will be 1 of each rare card
+- There will be 2 of each uncommon
+- There will be 4 of each common
+- Rares and Lands will be chosen with no bias
+- Uncommons will be chosen with the following requirements on each pack
+    * There is at least 1 Ally colored card
+    * There is at least 1 Mono colored or Colorless card
+- Commons will be chosen with the following requirements on each pack
+    * There exist 3 or more cards for each color of an ally pair
+    * There exists at least 1 Ally colored card
+    * There exists at least 1 Colorless card
+
 
 Viewing Lists
 ===========================================
@@ -12,20 +26,5 @@ Xmage can also import the files.
 
 Building Packs
 ===========================================
-You can build packs automatically with `./drafter.py` which will generate 5 
-
-To build packs manually you
-* Deal 1 Random land 
-* Deal 1 Random rare 
-* Split the uncommons into allies, enemies, and other
-    - Deal 1 Random ally 
-    - Deal 1 Random other 
-    - Deal 1 Random from the uncommons remaining 
-* Split the commons into White, Blue, Black, Red, Green, and other
-    - Deal 1 Random White 
-    - Deal 1 Random Blue 
-    - Deal 1 Random Black 
-    - Deal 1 Random Red 
-    - Deal 1 Random Green 
-    - Deal 1 Random Other 
-    - Deal 4 Random from the commons remaining 
+You can build packs automatically with `./packbuilder.py <def file> <num players> <packs per player>`
+which will generate the pools for you

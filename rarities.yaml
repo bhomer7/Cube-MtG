@@ -1,6 +1,6 @@
 # Rarities are structured as follows
 # Rarity:
-#     Name is used to look up the files. This gives Raritys/*.dec
+#     Name is used to look up the files. This gives <Raritys>/*.dec
 
 #     total: <int> Required.
 #         How many total of this rarity should be included per pack. This is used to see how many misc
@@ -34,7 +34,7 @@ Rare:
 Uncommon:
     total: 3
     per-file: 1
-    rem-files: ['Enemies']
+    rem-files: ['Other']
     duplication: 2
 
 Common:
@@ -43,6 +43,6 @@ Common:
     duplication: 4
 
 order: ['Land', 'Rare', 'Uncommon', 'Common']
-packs-per-player: 4
-players: 8
+packs-per-player: 8
+players: 4
 dest-dir: 'results'

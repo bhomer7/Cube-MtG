@@ -38,6 +38,16 @@
 1 Trostani's Summoner
 ///mvid:417760 qty:1 name:Unlicensed Disintegration loc:Deck
 1 Unlicensed Disintegration
+///mvid:369047 qty:1 name:Blaze Commando loc:Deck
+1 Blaze Commando
+///mvid:146010 qty:1 name:Doomgape loc:Deck
+1 Doomgape
+///mvid:366399 qty:1 name:Fathom Mage loc:Deck
+1 Fathom Mage
+///mvid:253510 qty:1 name:Mercurial Chemister loc:Deck
+1 Mercurial Chemister
+///mvid:83546 qty:1 name:Teysa, Orzhov Scion loc:Deck
+1 Teysa, Orzhov Scion
 ///mvid:366273 qty:1 name:AEtherize loc:Deck
 1 AEtherize
 ///mvid:417765 qty:1 name:Aetherflux Reservoir loc:Deck
@@ -88,13 +98,3 @@
 1 Whirlermaker
 ///mvid:413697 qty:1 name:Young Pyromancer loc:Deck
 1 Young Pyromancer
-///mvid:369047 qty:1 name:Blaze Commando loc:Deck
-1 Blaze Commando
-///mvid:146010 qty:1 name:Doomgape loc:Deck
-1 Doomgape
-///mvid:366399 qty:1 name:Fathom Mage loc:Deck
-1 Fathom Mage
-///mvid:253510 qty:1 name:Mercurial Chemister loc:Deck
-1 Mercurial Chemister
-///mvid:83546 qty:1 name:Teysa, Orzhov Scion loc:Deck
-1 Teysa, Orzhov Scion

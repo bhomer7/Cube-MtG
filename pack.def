@@ -9,32 +9,14 @@ Lands: 1
 
 Uncommons: 2
     Choices = [Any where Subset(GetColors(X), ColorIdent)]
-    Choices -> CName
-    Add(CName)
-    Choices -> CName
-    Add(CName)
-    Choices -> CName
-    Add(CName)
+    Repeat 3 {
+        Choices -> CName
+        Add(CName)
+    }
 
 Commons: 4
     Choices = [Any where Subset(GetColors(X), ColorIdent)]
-    Choices -> CName
-    Add(CName)
-    Choices -> CName
-    Add(CName)
-    Choices -> CName
-    Add(CName)
-    Choices -> CName
-    Add(CName)
-    Choices -> CName
-    Add(CName)
-    Choices -> CName
-    Add(CName)
-    Choices -> CName
-    Add(CName)
-    Choices -> CName
-    Add(CName)
-    Choices -> CName
-    Add(CName)
-    Choices -> CName
-    Add(CName)
+    Repeat 10 {
+        Choices -> CName
+        Add(CName)
+    }

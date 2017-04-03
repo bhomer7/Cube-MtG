@@ -12,8 +12,10 @@ from ply.lex import TOKEN
 from gatherer import get_color_identity
 
 variables = {}
-DEBUG = True
-# Future Concepts: Repeat block, standalone functions(append)
+DEBUG = False
+# Future Concepts: Prevent duplicates in the same pack,
+#                  Add Misc variable for remaining after all processing,
+#                  Debug for printing results
 
 
 def rare_index(r):
@@ -53,7 +55,8 @@ class RarityNode(Node):
         self.name = name
         self.exprs = exprs
         self.duplication = duplication
-        self.card_list = defaultdict(dict)
+        self.file_list = defaultdict(list)
+        self.card_list = {}
         self.file_names = glob.glob(name + '/*.dec')
         for fname in self.file_names:
             with open(fname) as rare_file:
@@ -64,7 +67,8 @@ class RarityNode(Node):
                         cur_line = line
                     else:
                         cur_line += line
-                        self.card_list[rare_index(fname)][cur_line] = self.duplication
+                        self.file_list[rare_index(fname)].append(cur_line)
+                        self.card_list[cur_line] = self.duplication
                     comment = not comment
         self.file_names = [rare_index(f) for f in self.file_names]
 
@@ -80,9 +84,10 @@ class RarityNode(Node):
         return str(self)
 
     def eval(self, pack):
-        added_vars = ['FileNames', '_master_card_list']
+        added_vars = ['FileNames', '_master_card_list', '_master_file_list']
         variables['FileNames'] = self.file_names
         variables['_master_card_list'] = self.card_list
+        variables['_master_file_list'] = self.file_list
         # TODO Remove the used cards at the end
 
         for expr in self.exprs:
@@ -90,6 +95,48 @@ class RarityNode(Node):
         for variable in added_vars:
             del variables[variable]
         return pack
+
+
+class RepeatNode(Node):
+    def __init__(self, n, exprs):
+        self.n = n
+        self.exprs = exprs
+
+    def __str__(self):
+        str_exprs = []
+        for expr in self.exprs:
+            str_expr = str(expr)
+            str_exprs.append('\n'.join('\t' + ln for ln in str_expr.split('\n')))
+        res = "RepeatNode: " + str(self.n) + '\n' + '\n'.join(str_exprs)
+        return res
+
+    def __repr__(self):
+        return str(self)
+
+    def eval(self, pack):
+        for _ in range(self.n):
+            for expr in self.exprs:
+                expr.eval(pack)
+        return pack
+
+
+class ListNode(Node):
+    def __init__(self, vals):
+        self.vals = vals
+
+    def __str__(self):
+        str_exprs = []
+        for expr in self.vals:
+            str_expr = str(expr)
+            str_exprs.append('\n'.join('\t' + ln for ln in str_expr.split('\n')))
+        res = "ListNode:\n" + '\n'.join(str_exprs)
+        return res
+
+    def __repr__(self):
+        return str(self)
+
+    def eval(self, pack):
+        return [x.eval(pack) for x in self.vals]
 
 
 class FunctionNode(Node):
@@ -145,7 +192,11 @@ class AddNode(Node):
         return str(self)
 
     def eval(self, pack):
-        pack.append(self.val.eval(pack))
+        res = self.val.eval(pack)
+        if DEBUG:
+            print('Adding', res)
+        pack.append(res)
+        variables['_master_card_list'][res] -= 1
 
 
 class IdNode(Node):
@@ -184,9 +235,7 @@ class AnyNode(Node):
         return str(self)
 
     def eval(self, pack):
-        combined_card_list = []
-        for _, lst in variables['_master_card_list'].items():
-            combined_card_list += [k for k, v in lst.items() if v > 0]
+        combined_card_list = [k for k, v in variables['_master_card_list'].items() if v > 0 and k not in pack]
         return combined_card_list
 
 
@@ -281,8 +330,12 @@ def get_color(cd):
     return res
 
 
+def zip_lists(lst1, lst2):
+    return list(zip(lst1, lst2))
+
+
 def get_list(fname):
-    res = [k for k, v in variables['_master_card_list'][fname].items() if v > 0]
+    res = [cd for cd in variables['_master_file_list'][fname] if variables['_master_card_list'][cd] > 0]
     return res
 
 
@@ -304,7 +357,7 @@ def contains_at_least(a, n):
 
 functions = {
     'Rotate': rotate,
-    'Zip': zip,
+    'Zip': zip_lists,
     'Following': following,
     'GetColors': get_color,
     'GetList': get_list,
@@ -351,6 +404,13 @@ def p_rarity(p):
     if DEBUG:
         print(inspect.stack()[0][3])
     p[0] = RarityNode(p[1], p[2], p[3])
+
+
+def p_expression_repeat(p):
+    """expression : REPEAT INTEGER LBRACE exprs RBRACE"""
+    if DEBUG:
+        print(inspect.stack()[0][3])
+    p[0] = RepeatNode(p[2], p[4])
 
 
 def p_assign_expression(p):
@@ -401,7 +461,7 @@ def p_val_list(p):
     """val_list : LBRACKET val_listp RBRACKET"""
     if DEBUG:
         print(inspect.stack()[0][3])
-    p[0] = p[2]
+    p[0] = ListNode(p[2])
 
 
 def p_val_id(p):
@@ -437,7 +497,7 @@ def p_val_comprehension(p):
     """val : LBRACKET val WHERE prop_list RBRACKET"""
     if DEBUG:
         print(inspect.stack()[0][3])
-    p[0] = ComprehensionNode(AnyNode(), p[4])
+    p[0] = ComprehensionNode(p[2], p[4])
 
 
 def p_prop(p):
@@ -451,7 +511,8 @@ reserved = {
     'where': 'WHERE',
     'and': 'AND',
     'Add': 'ADD',
-    'Any': 'ANY'
+    'Any': 'ANY',
+    'Repeat': 'REPEAT'
 }
 for function in functions:
     reserved[function] = 'FUNCTION'
@@ -471,7 +532,8 @@ tokens = (
     'INTEGER',
     'LPAREN',
     'RPAREN',
-    'COMMENT'
+    'LBRACE',
+    'RBRACE'
 ) + tuple(set(reserved.values()))
 
 
@@ -483,7 +545,7 @@ def t_RARITY_NAME(tok):
     return tok
 
 
-@TOKEN(r"'[^']*'")
+@TOKEN(r"('[^']*')|" + '("[^"]*")')
 def t_STRING(tok):
     if DEBUG:
         print(inspect.stack()[0][3], tok)
@@ -499,20 +561,13 @@ def t_INTEGER(tok):
     return tok
 
 
-@TOKEN(r'[a-zA-Z]+')
+@TOKEN(r'[a-zA-Z][a-zA-Z0-9]*')
 def t_ID(tok):
     if DEBUG:
         print(inspect.stack()[0][3], tok)
     if tok.value in reserved:
         tok.type = reserved[tok.value]
-    print(tok)
     return tok
-
-
-@TOKEN(r'/\*.*\*/')
-def t_COMMENT(tok):
-    if DEBUG:
-        print(inspect.stack()[0][3], tok)
 
 
 t_ASSIGN = '='
@@ -520,9 +575,12 @@ t_EXTRACT = '->'
 t_SPLIT = '/>'
 t_LBRACKET = r'\['
 t_RBRACKET = r'\]'
+t_LBRACE = r'{'
+t_RBRACE = r'}'
 t_COMMA = ','
 t_LPAREN = r'\('
 t_RPAREN = r'\)'
+t_ignore_COMMENT = r'/\*.*\*/'
 
 t_ignore = ' \t'
 

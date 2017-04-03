@@ -1,0 +1,39 @@
+Lands: 1
+    Any -> Card
+    Add(Card)
+
+Rares: 1
+    Any -> Card
+    Add(Card)
+
+Uncommons: 2
+    GetList('Allies') -> Card
+    Add(Card)
+    GetList('Mono') -> Card
+    Add(Card)
+    Any -> Card
+    Add(Card)
+
+Commons: 4
+    Colors = ['White', 'Blue', 'Black', 'Red', 'Green']
+    Allies = Zip(Colors, Rotate(Colors,1))
+    [Allies where ContainsAtLeast(GetList(X0), 3) and ContainsAtLeast(GetList(X1), 3)] -> FinalColors
+    FinalColors /> FColor, SColor
+    FColorList = GetList(FColor)
+    SColorList = GetList(SColor)
+    Repeat 3 {
+        FColorList -> Card
+        Add(Card)
+    }
+    Repeat 3 {
+        SColorList -> Card
+        Add(Card)
+    }
+    GetList('Allies') -> Card
+    Add(Card)
+    GetList('Colorless') -> Card
+    Add(Card)
+    Repeat 2 {
+        Any -> Card
+        Add(Card)
+    }

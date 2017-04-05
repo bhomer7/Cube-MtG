@@ -17,7 +17,6 @@ DEBUG = False
 #                  Add Misc variable for remaining after all processing,
 #                  Debug for printing results
 #                  If blocks
-#                  Full propositions with ors and not
 
 
 def rare_index(r):
@@ -197,6 +196,8 @@ class AddNode(Node):
         res = self.val.eval(pack)
         if DEBUG:
             print('Adding', res)
+        if res in pack:
+            print('Double adding', res)
         pack.append(res)
         variables['_master_card_list'][res] -= 1
 

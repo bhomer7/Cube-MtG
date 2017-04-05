@@ -1,5 +1,7 @@
 ///mvid:205957 qty:1 name:Ajani Goldmane loc:Deck
 1 Ajani Goldmane
+///mvid:397885 qty:1 name:Apocalypse Hydra loc:Deck
+1 Apocalypse Hydra
 ///mvid:370627 qty:1 name:Archangel of Thune loc:Deck
 1 Archangel of Thune
 ///mvid:407661 qty:1 name:Ayli, Eternal Pilgrim loc:Deck
@@ -14,8 +16,14 @@
 1 Chandra Ablaze
 ///mvid:290528 qty:1 name:Collective Blessing loc:Deck
 1 Collective Blessing
+///mvid:240030 qty:1 name:Conjurer's Closet loc:Deck
+1 Conjurer's Closet
 ///mvid:380403 qty:1 name:Dictate of the Twin Gods loc:Deck
 1 Dictate of the Twin Gods
+///mvid:394548 qty:1 name:Dragonlord Kolaghan loc:Deck
+1 Dragonlord Kolaghan
+///mvid:262860 qty:1 name:Drogskol Reaver loc:Deck
+1 Drogskol Reaver
 ///mvid:244740 qty:1 name:Elbrus, the Binding Blade loc:Deck
 1 Elbrus, the Binding Blade
 ///mvid:215080 qty:1 name:Engulfing Slagwurm loc:Deck
@@ -28,12 +36,16 @@
 1 Grave Betrayal
 ///mvid:50445 qty:1 name:Kokusho, the Evening Star loc:Deck
 1 Kokusho, the Evening Star
+///mvid:366469 qty:1 name:Lazav, Dimir Mastermind loc:Deck
+1 Lazav, Dimir Mastermind
 ///mvid:185812 qty:1 name:Malfegor loc:Deck
 1 Malfegor
 ///mvid:405295 qty:1 name:Mazirek, Kraul Death Priest loc:Deck
 1 Mazirek, Kraul Death Priest
 ///mvid:378523 qty:1 name:Mogis, God of Slaughter loc:Deck
 1 Mogis, God of Slaughter
+///mvid:209717 qty:1 name:Myr Battlesphere loc:Deck
+1 Myr Battlesphere
 ///mvid:23202 qty:1 name:Overabundance loc:Deck
 1 Overabundance
 ///mvid:83201 qty:1 name:Phyrexian Arena loc:Deck
@@ -46,10 +58,14 @@
 1 Sakashima the Impostor
 ///mvid:416827 qty:1 name:Selvala, Heart of the Wilds loc:Deck
 1 Selvala, Heart of the Wilds
+///mvid:240033 qty:1 name:Sigarda, Host of Herons loc:Deck
+1 Sigarda, Host of Herons
 ///mvid:420660 qty:1 name:Silas Renn, Seeker Adept loc:Deck
 1 Silas Renn, Seeker Adept
 ///mvid:383388 qty:1 name:Soul of New Phyrexia loc:Deck
 1 Soul of New Phyrexia
+///mvid:193596 qty:1 name:Sphinx-Bone Wand loc:Deck
+1 Sphinx-Bone Wand
 ///mvid:253641 qty:1 name:Trostani, Selesnya's Voice loc:Deck
 1 Trostani, Selesnya's Voice
 ///mvid:97212 qty:1 name:Ulasht, the Hate Seed loc:Deck

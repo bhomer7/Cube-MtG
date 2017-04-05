@@ -1,0 +1,28 @@
+Lands: 1
+    Colors = ['White', 'Blue', 'Black', 'Red', 'Green']
+    Shards = Zip(Colors, Rotate(Colors,1))
+    Shards -> FinalColors
+    FinalColors  /> FC, SC
+    LandFullColors = [FC, SC, 'Colorless']
+    Repeat 2 {
+        [Any where Subset(GetColors(X), LandFullColors) and Intersects(GetColors(X), FinalColors)] -> Card
+        Add(Card)
+    }
+
+Rares: 1
+    Repeat 2 {
+        [Any where Subset(GetColors(X), FinalColors) or ContainsExact(GetColors(X), 0)] -> Card
+        Add(Card)
+    }
+
+Uncommons: 2
+    Repeat 6 {
+        [Any where Subset(GetColors(X), FinalColors) or ContainsExact(GetColors(X), 0)] -> Card
+        Add(Card)
+    }
+
+Commons: 4
+    Repeat 20 {
+        [Any where Subset(GetColors(X), FinalColors) or ContainsExact(GetColors(X), 0)] -> Card
+        Add(Card)
+    }

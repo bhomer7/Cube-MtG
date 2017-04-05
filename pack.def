@@ -1,0 +1,22 @@
+Rares: 1
+    [Any where ContainsAtLeast(GetColors(X), 2)] -> CName
+    ColorIdent = GetColors(CName)
+    Add(CName)
+
+Lands: 1
+    [Any where Subset(GetColors(X), ColorIdent)] -> CName
+    Add(CName)
+
+Uncommons: 2
+    Choices = [Any where Subset(GetColors(X), ColorIdent)]
+    Repeat 3 {
+        Choices -> CName
+        Add(CName)
+    }
+
+Commons: 4
+    Choices = [Any where Subset(GetColors(X), ColorIdent)]
+    Repeat 10 {
+        Choices -> CName
+        Add(CName)
+    }

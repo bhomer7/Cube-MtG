@@ -1,3 +1,5 @@
+///mvid:368989 qty:1 name:Armed // Dangerous loc:Deck
+1 Armed // Dangerous
 ///mvid:394502 qty:1 name:Atarka's Command loc:Deck
 1 Atarka's Command
 ///mvid:413738 qty:1 name:Baleful Strix loc:Deck
@@ -8,14 +10,20 @@
 1 Blightning
 ///mvid:417749 qty:1 name:Cloudblazer loc:Deck
 1 Cloudblazer
+///mvid:83850 qty:1 name:Dimir Doppelganger loc:Deck
+1 Dimir Doppelganger
 ///mvid:373562 qty:1 name:Fleecemane Lion loc:Deck
 1 Fleecemane Lion
 ///mvid:366398 qty:1 name:Gruul Ragebeast loc:Deck
 1 Gruul Ragebeast
 ///mvid:179567 qty:1 name:Mage Slayer loc:Deck
 1 Mage Slayer
+///mvid:420655 qty:1 name:Migratory Route loc:Deck
+1 Migratory Route
 ///mvid:426035 qty:1 name:Mistmeadow Witch loc:Deck
 1 Mistmeadow Witch
+///mvid:107543 qty:1 name:Rakdos Augermage loc:Deck
+1 Rakdos Augermage
 ///mvid:253590 qty:1 name:Rakdos Charm loc:Deck
 1 Rakdos Charm
 ///mvid:407667 qty:1 name:Reflector Mage loc:Deck
@@ -38,3 +46,7 @@
 1 Trostani's Summoner
 ///mvid:417760 qty:1 name:Unlicensed Disintegration loc:Deck
 1 Unlicensed Disintegration
+///mvid:180344 qty:1 name:Vagrant Plowbeasts loc:Deck
+1 Vagrant Plowbeasts
+///mvid:420648 qty:1 name:Grave Upheaval loc:SB
+SB: 1 Grave Upheaval

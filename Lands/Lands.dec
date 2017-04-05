@@ -1,11 +1,17 @@
 ///mvid:370424 qty:1 name:Academy Ruins loc:Deck
 1 Academy Ruins
+///mvid:389430 qty:1 name:Arcane Lighthouse loc:Deck
+1 Arcane Lighthouse
 ///mvid:209401 qty:1 name:Blackcleave Cliffs loc:Deck
 1 Blackcleave Cliffs
 ///mvid:391804 qty:1 name:Blossoming Sands loc:Deck
 1 Blossoming Sands
+///mvid:259680 qty:1 name:Cathedral of War loc:Deck
+1 Cathedral of War
 ///mvid:410038 qty:1 name:Choked Estuary loc:Deck
 1 Choked Estuary
+///mvid:213775 qty:1 name:Contested War Zone loc:Deck
+1 Contested War Zone
 ///mvid:121155 qty:1 name:Dark Depths loc:Deck
 1 Dark Depths
 ///mvid:249716 qty:1 name:Dragonskull Summit loc:Deck
@@ -28,26 +34,36 @@
 1 Hanweir Battlements
 ///mvid:169963 qty:1 name:Kabira Crossroads loc:Deck
 1 Kabira Crossroads
+///mvid:233256 qty:1 name:Kessig Wolf Run loc:Deck
+1 Kessig Wolf Run
 ///mvid:413784 qty:1 name:Mishra's Factory loc:Deck
 1 Mishra's Factory
 ///mvid:161276 qty:1 name:Mistvein Borderpost loc:Deck
 1 Mistvein Borderpost
+///mvid:233239 qty:1 name:Moorland Haunt loc:Deck
+1 Moorland Haunt
 ///mvid:139515 qty:1 name:Mosswort Bridge loc:Deck
 1 Mosswort Bridge
 ///mvid:204978 qty:1 name:Mystifying Maze loc:Deck
 1 Mystifying Maze
+///mvid:230789 qty:1 name:Nephalia Drownyard loc:Deck
+1 Nephalia Drownyard
 ///mvid:410046 qty:1 name:Port Town loc:Deck
 1 Port Town
 ///mvid:177583 qty:1 name:Raging Ravine loc:Deck
 1 Raging Ravine
 ///mvid:288876 qty:1 name:Reliquary Tower loc:Deck
 1 Reliquary Tower
+///mvid:97072 qty:1 name:Rix Maadi, Dungeon Palace loc:Deck
+1 Rix Maadi, Dungeon Palace
 ///mvid:398523 qty:1 name:Rogue's Passage loc:Deck
 1 Rogue's Passage
 ///mvid:249735 qty:1 name:Rootbound Crag loc:Deck
 1 Rootbound Crag
 ///mvid:189626 qty:1 name:Sejiri Refuge loc:Deck
 1 Sejiri Refuge
+///mvid:157976 qty:1 name:Springjack Pasture loc:Deck
+1 Springjack Pasture
 ///mvid:249736 qty:1 name:Sunpetal Grove loc:Deck
 1 Sunpetal Grove
 ///mvid:373734 qty:1 name:Temple of Deceit loc:Deck
@@ -56,9 +72,15 @@
 1 Terrain Generator
 ///mvid:189640 qty:1 name:Veinfire Borderpost loc:Deck
 1 Veinfire Borderpost
+///mvid:113543 qty:1 name:Vesuva loc:Deck
+1 Vesuva
+///mvid:89016 qty:1 name:Vitu-Ghazi, the City-Tree loc:Deck
+1 Vitu-Ghazi, the City-Tree
 ///mvid:5263 qty:1 name:Volrath's Stronghold loc:Deck
 1 Volrath's Stronghold
 ///mvid:410049 qty:1 name:Westvale Abbey loc:Deck
 1 Westvale Abbey
 ///mvid:179590 qty:1 name:Wildfield Borderpost loc:Deck
 1 Wildfield Borderpost
+///mvid:4595 qty:1 name:Winding Canyons loc:Deck
+1 Winding Canyons

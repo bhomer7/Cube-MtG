@@ -1,0 +1,36 @@
+RarityName:
+    LName = ['List', 'of', 'Names']
+    LName3 = Zip(LName1, LName2) (Combine to make tuples of elements. If one is already tuples will append to those)
+    LName2 = Rotate(LName, N) (Rotate LName to the right N spaces with wrapping)
+    LName2 = [LName where Prop1(X, X1,...) and Prop2(X, X2,...) and not NProp(X,...)] (Filter LName for members where Prop1 and Prop2 hold and
+                                                                                       NProp does not. X is used as the variable name if LName
+                                                                                       is not a list of tuples. X1, X2,... are the variables
+                                                                                       for access to Tuple Elements)
+    LName -> FName (Pull a random element from a list.
+                    FileNames is the special list for all files in this rarity)
+    Tuple /> CName1, CName2,... (Split a tuple into its respective elements
+    FName = Following(FName, LName) (The next value in the list with wrapping)
+    Add(FName, N) (Add N cards from the file FName to the pack
+                   Any is a special FName for the collection of all files combined.
+                   Misc is a special FName for the cards left after everything else at this rarity is allocated)
+
+    Contains(FName, N) (There are at least N unique cards remaining in FName)
+
+# Proposed additions
+    FName => CName (Pull a random card from a file)
+    IntersectColors(CName1, CName2) (Two cards share a color)
+    Add(CName) add a specific card to the pack
+    AddWhere(FName, N, Prop(X,...))
+
+Example which adds Commons to packs:
+Colors = ['White', 'Blue', 'Black', 'Red', 'Green']
+ColorsR = Rotate(Colors, 1)
+Allies = Zip(Colors, ColorsR)
+LName2 = [Allies where ContaintsAtLeast(X1, 3) and ContainsAtLeast(X2, 3)]
+Lname2 -> ColorPair
+ColorPair /> FColor, SColor
+Add(FColor, 3)
+Add(SColor, 3)
+Add('Multicolored', 1)
+Add('Colorless', 1)
+Add(Misc, 3)

@@ -16,6 +16,8 @@ DEBUG = False
 # Future Concepts: Prevent duplicates in the same pack,
 #                  Add Misc variable for remaining after all processing,
 #                  Debug for printing results
+#                  If blocks
+#                  Full propositions with ors and not
 
 
 def rare_index(r):
@@ -240,17 +242,13 @@ class AnyNode(Node):
 
 
 class ComprehensionNode(Node):
-    def __init__(self, source, prop_list):
+    def __init__(self, source, prop):
         self.source = source
-        self.prop_list = prop_list
+        self.prop = prop
 
     def __str__(self):
-        str_props = []
-        for prop in self.prop_list:
-            str_prop = str(prop)
-            str_props.append('\n'.join('\t' + ln for ln in str_prop.split('\n')))
-        res = "ComprehensionNode: " + str(self.source)
-        res += '\n' + '\n'.join(str_props)
+        str_prop = '\n'.join('\t' + ln for ln in str(self.prop).split('\n'))
+        res = "ComprehensionNode: " + str(self.source) + '\n' + str_prop
         return res
 
     def __repr__(self):
@@ -267,7 +265,7 @@ class ComprehensionNode(Node):
                 for i, val in enumerate(x):
                     variables['X{}'.format(i)] = val
                     added_variables.append('X{}'.format(i))
-                if all(prop.eval(pack) for prop in self.prop_list):
+                if self.prop.eval(pack):
                     res.append(x)
                 for var in added_variables:
                     del variables[var]
@@ -275,32 +273,31 @@ class ComprehensionNode(Node):
             for x in lst:
                 variables['X'] = x
                 added_variables = ['X']
-                if all(prop.eval(pack) for prop in self.prop_list):
+                if self.prop.eval(pack):
                     res.append(x)
                 for var in added_variables:
                     del variables[var]
         return res
 
 
-class PropostionNode(Node):
-    def __init__(self, fun, val1, val2):
+class PropositionNode(Node):
+    def __init__(self, fun, *vals):
         self.fun = fun
-        self.val1 = val1
-        self.val2 = val2
+        self.vals = vals
 
     def __str__(self):
-        res = "PropositionNode: " + self.fun
-        str_val1 = str(self.val1)
-        res += '\n' + '\n'.join('\t' + ln for ln in str_val1.split('\n'))
-        str_val2 = str(self.val2)
-        res += '\n' + '\n'.join('\t' + ln for ln in str_val2.split('\n'))
+        str_vals = []
+        for val in self.vals:
+            str_val = str(val)
+            str_vals.append('\n'.join('\t' + ln for ln in str_val.split('\n')))
+        res = "PropositionNode: " + self.fun + '\n' + '\n'.join(str_vals)
         return res
 
     def __repr__(self):
         return str(self)
 
     def eval(self, pack):
-        return propositions[self.fun](self.val1.eval(pack), self.val2.eval(pack))
+        return propositions[self.fun](*(v.eval(pack) for v in self.vals))
 
 
 def split_list(lst, *ids):
@@ -309,8 +306,10 @@ def split_list(lst, *ids):
 
 
 def random_assign(lst, identifier):
-    variables[identifier] = random.choice(lst)
-    lst.remove(variables[identifier])
+    if len(lst) == 0:
+            raise ValueError("Empty list being extracted from")
+    i = random.randint(0, len(lst) - 1)
+    variables[identifier] = lst.pop(i)
 
 
 def update_variable(val, identifier):
@@ -326,12 +325,13 @@ def following(lst, val):
 
 
 def get_color(cd):
-    res = get_color_identity(cd)
+    res = list(get_color_identity(cd))
     return res
 
 
-def zip_lists(lst1, lst2):
-    return list(zip(lst1, lst2))
+def zip_lists(*args):
+    res = list(zip(*args))
+    return res
 
 
 def get_list(fname):
@@ -355,18 +355,49 @@ def contains_at_least(a, n):
     return len(a) >= n
 
 
+def contains_exact(a, n):
+    return len(a) == n
+
+
+def or_props(*args):
+    if len(args) == 0:
+        return False
+    else:
+        return args[0] or or_props(*args[1:])
+
+
+def and_props(*args):
+    if len(args) == 0:
+        return True
+    else:
+        return args[0] and and_props(*args[1:])
+
+
+def not_prop(p):
+    return not p
+
+
+def id_prop(p):
+    return p
+
+
 functions = {
     'Rotate': rotate,
     'Zip': zip_lists,
     'Following': following,
     'GetColors': get_color,
     'GetList': get_list,
-    'Concatenate': concatenate
+    'Concat': concatenate
 }
 propositions = {
     'Intersects': intersects,
     'ContainsAtLeast': contains_at_least,
-    'Subset': subset
+    'ContainsExact': contains_exact,
+    'Subset': subset,
+    'Or': or_props,
+    'And': and_props,
+    'Not': not_prop,
+    'Id': id_prop
 }
 
 
@@ -442,13 +473,11 @@ def p_add_expression(p):
     p[0] = AddNode(p[3])
 
 
-def p_id_list(p):
+def p_separator_list(p):
     """id_list : ID
                | id_list COMMA ID
        val_listp : val
-                 | val_listp COMMA val
-       prop_list : prop
-                 | prop_list AND prop"""
+                 | val_listp COMMA val"""
     if DEBUG:
         print(inspect.stack()[0][3])
     if len(p) == 4:
@@ -494,17 +523,45 @@ def p_val_function(p):
 
 
 def p_val_comprehension(p):
-    """val : LBRACKET val WHERE prop_list RBRACKET"""
+    """val : LBRACKET val WHERE prop RBRACKET"""
     if DEBUG:
         print(inspect.stack()[0][3])
     p[0] = ComprehensionNode(p[2], p[4])
 
 
-def p_prop(p):
-    """prop : PROPOSITION LPAREN val COMMA val RPAREN"""
+def p_prop_nested(p):
+    """prop : LPAREN prop RPAREN"""
     if DEBUG:
         print(inspect.stack()[0][3])
-    p[0] = PropostionNode(p[1], p[3], p[5])
+    p[0] = PropositionNode('Id', p[2])
+
+
+def p_prop_not(p):
+    """prop : NOT prop"""
+    if DEBUG:
+        print(inspect.stack()[0][3])
+    p[0] = PropositionNode('Not', p[2])
+
+
+def p_prop_or(p):
+    """prop : prop OR prop"""
+    if DEBUG:
+        print(inspect.stack()[0][3])
+    p[0] = PropositionNode('Or', p[1], p[3])
+
+
+def p_prop_and(p):
+    """prop : prop AND prop"""
+    if DEBUG:
+        print(inspect.stack()[0][3])
+    p[0] = PropositionNode('And', p[1], p[3])
+
+
+def p_prop(p):
+    """prop : PROPOSITION LPAREN val_listp RPAREN"""
+    if DEBUG:
+        print(inspect.stack()[0][3])
+    p[0] = PropositionNode(p[1], *p[3])
 
 
 reserved = {
@@ -512,7 +569,9 @@ reserved = {
     'and': 'AND',
     'Add': 'ADD',
     'Any': 'ANY',
-    'Repeat': 'REPEAT'
+    'Repeat': 'REPEAT',
+    'or': 'OR',
+    'not': 'NOT'
 }
 for function in functions:
     reserved[function] = 'FUNCTION'
@@ -535,6 +594,10 @@ tokens = (
     'LBRACE',
     'RBRACE'
 ) + tuple(set(reserved.values()))
+precedence = (
+    ('right', 'NOT'),
+    ('left', 'AND', 'OR')
+)
 
 
 @TOKEN(r'[a-zA-Z]+:')
@@ -570,6 +633,12 @@ def t_ID(tok):
     return tok
 
 
+# Define a rule so we can track line numbers
+def t_newline(t):
+    r"""\n+"""
+    t.lexer.lineno += len(t.value)
+
+
 t_ASSIGN = '='
 t_EXTRACT = '->'
 t_SPLIT = '/>'
@@ -585,6 +654,14 @@ t_ignore_COMMENT = r'/\*.*\*/'
 t_ignore = ' \t'
 
 
+def find_column(token):
+    last_cr = token.lexer.lexdata.rfind('\n', 0, token.lexpos)
+    if last_cr < 0:
+        last_cr = 0
+    column = (token.lexpos - last_cr) + 1
+    return column
+
+
 # Error handling rule
 def t_error(t):
     pass
@@ -592,9 +669,9 @@ def t_error(t):
     t.lexer.skip(1)
 
 
-def p_error(p):
-    if p:
-        print("Syntax error at token", p.type, "line", p.lineno, p.lexpos)
+def p_error(t):
+    if t:
+        print("Syntax error at token", t.type, "line", t.lineno, find_column(t))
         # Just discard the token and tell the parser it's okay.
         # parser.errok()
     else:

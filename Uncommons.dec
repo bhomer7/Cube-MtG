@@ -1,3 +1,5 @@
+///mvid:368989 qty:1 name:Armed // Dangerous loc:Deck
+1 Armed // Dangerous
 ///mvid:394502 qty:1 name:Atarka's Command loc:Deck
 1 Atarka's Command
 ///mvid:413738 qty:1 name:Baleful Strix loc:Deck
@@ -8,14 +10,20 @@
 1 Blightning
 ///mvid:417749 qty:1 name:Cloudblazer loc:Deck
 1 Cloudblazer
+///mvid:83850 qty:1 name:Dimir Doppelganger loc:Deck
+1 Dimir Doppelganger
 ///mvid:373562 qty:1 name:Fleecemane Lion loc:Deck
 1 Fleecemane Lion
 ///mvid:366398 qty:1 name:Gruul Ragebeast loc:Deck
 1 Gruul Ragebeast
 ///mvid:179567 qty:1 name:Mage Slayer loc:Deck
 1 Mage Slayer
+///mvid:420655 qty:1 name:Migratory Route loc:Deck
+1 Migratory Route
 ///mvid:426035 qty:1 name:Mistmeadow Witch loc:Deck
 1 Mistmeadow Witch
+///mvid:107543 qty:1 name:Rakdos Augermage loc:Deck
+1 Rakdos Augermage
 ///mvid:253590 qty:1 name:Rakdos Charm loc:Deck
 1 Rakdos Charm
 ///mvid:407667 qty:1 name:Reflector Mage loc:Deck
@@ -38,6 +46,10 @@
 1 Trostani's Summoner
 ///mvid:417760 qty:1 name:Unlicensed Disintegration loc:Deck
 1 Unlicensed Disintegration
+///mvid:180344 qty:1 name:Vagrant Plowbeasts loc:Deck
+1 Vagrant Plowbeasts
+///mvid:420648 qty:1 name:Grave Upheaval loc:SB
+SB: 1 Grave Upheaval
 ///mvid:369047 qty:1 name:Blaze Commando loc:Deck
 1 Blaze Commando
 ///mvid:146010 qty:1 name:Doomgape loc:Deck
@@ -64,8 +76,6 @@
 1 Crypt Ghast
 ///mvid:425888 qty:1 name:Damnation loc:Deck
 1 Damnation
-///mvid:420634 qty:1 name:Divergent Transformations loc:Deck
-1 Divergent Transformations
 ///mvid:210235 qty:1 name:Exsanguinate loc:Deck
 1 Exsanguinate
 ///mvid:423686 qty:1 name:Felidar Guardian loc:Deck
@@ -74,8 +84,12 @@
 1 Genesis Hydra
 ///mvid:398572 qty:1 name:Hangarback Walker loc:Deck
 1 Hangarback Walker
+///mvid:423776 qty:1 name:Heroic Intervention loc:Deck
+1 Heroic Intervention
 ///mvid:380438 qty:1 name:Hydra Broodmaster loc:Deck
 1 Hydra Broodmaster
+///mvid:198393 qty:1 name:Marshal's Anthem loc:Deck
+1 Marshal's Anthem
 ///mvid:178560 qty:1 name:Martial Coup loc:Deck
 1 Martial Coup
 ///mvid:417795 qty:1 name:Metalwork Colossus loc:Deck
@@ -84,17 +98,25 @@
 1 Nim Deathmantle
 ///mvid:80241 qty:1 name:Orochi Hatchery loc:Deck
 1 Orochi Hatchery
+///mvid:417670 qty:1 name:Ovalchase Daredevil loc:Deck
+1 Ovalchase Daredevil
 ///mvid:370798 qty:1 name:Path of Bravery loc:Deck
 1 Path of Bravery
 ///mvid:405361 qty:1 name:Rite of the Raging Storm loc:Deck
 1 Rite of the Raging Storm
+///mvid:227077 qty:1 name:Scourge of Geier Reach loc:Deck
+1 Scourge of Geier Reach
 ///mvid:254108 qty:1 name:Sphinx of Uthuun loc:Deck
 1 Sphinx of Uthuun
 ///mvid:205058 qty:1 name:Temple Bell loc:Deck
 1 Temple Bell
+///mvid:129770 qty:1 name:Tidings loc:Deck
+1 Tidings
 ///mvid:423846 qty:1 name:Untethered Express loc:Deck
 1 Untethered Express
 ///mvid:417812 qty:1 name:Whirlermaker loc:Deck
 1 Whirlermaker
+///mvid:376590 qty:1 name:Witch Hunt loc:Deck
+1 Witch Hunt
 ///mvid:413697 qty:1 name:Young Pyromancer loc:Deck
 1 Young Pyromancer

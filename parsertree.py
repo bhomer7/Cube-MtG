@@ -302,8 +302,11 @@ class PropositionNode(Node):
 
 
 def split_list(lst, *ids):
+    if len(ids) < len(lst):
+        print("Not splitting a large enough tuple")
     for val, identifier in zip(lst, ids):
-        variables[identifier] = val
+        if identifier != '_':
+            variables[identifier] = val
 
 
 def random_assign(lst, identifier):
@@ -348,6 +351,11 @@ def intersects(a, b):
     return len(set(a) & set(b)) > 0
 
 
+def intersect(a, b):
+    res = list(set(a) & set(b))
+    return res
+
+
 def subset(a, b):
     return len(set(a) & set(b)) == len(a)
 
@@ -358,6 +366,13 @@ def contains_at_least(a, n):
 
 def contains_exact(a, n):
     return len(a) == n
+
+
+def contains(a, *args):
+    res = True
+    for b in args:
+        res &= b in a
+    return res
 
 
 def or_props(*args):
@@ -388,12 +403,14 @@ functions = {
     'Following': following,
     'GetColors': get_color,
     'GetList': get_list,
-    'Concat': concatenate
+    'Concat': concatenate,
+    'Intersect': intersect
 }
 propositions = {
     'Intersects': intersects,
     'ContainsAtLeast': contains_at_least,
     'ContainsExact': contains_exact,
+    'Contains': contains,
     'Subset': subset,
     'Or': or_props,
     'And': and_props,
@@ -596,8 +613,8 @@ tokens = (
     'RBRACE'
 ) + tuple(set(reserved.values()))
 precedence = (
+    ('left', 'AND', 'OR'),
     ('right', 'NOT'),
-    ('left', 'AND', 'OR')
 )
 
 
@@ -625,7 +642,7 @@ def t_INTEGER(tok):
     return tok
 
 
-@TOKEN(r'[a-zA-Z][a-zA-Z0-9]*')
+@TOKEN(r'[a-zA-Z_][a-zA-Z0-9_]*')
 def t_ID(tok):
     if DEBUG:
         print(inspect.stack()[0][3], tok)

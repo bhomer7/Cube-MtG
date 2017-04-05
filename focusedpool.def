@@ -1,0 +1,38 @@
+Lands: 1
+    Colors = ['White', 'Blue', 'Black', 'Red', 'Green']
+    Zip(Colors, Rotate(Colors,1), Rotate(Colors, 2)) -> FinalColors
+    FinalColors /> FC, PrimaryColor, TC
+    FullColors = [FC, PrimaryColor, TC, 'Colorless']
+    Ally1 = [FC, PrimaryColor, 'Colorless']
+    Ally2 = [TC, PrimaryColor, 'Colorless']
+    Repeat 4 {
+        [Any where Contains(GetColors(X), PrimaryColor) and Subset(GetColors(X), FullColors)] -> Card
+        Add(Card)
+    }
+
+Rares: 1
+    Repeat 2 {
+        [Any where Contains(GetColors(X), PrimaryColor) and Subset(GetColors(X), FullColors)] -> Card
+        Add(Card)
+    }
+    [Any where ContainsAtLeast(Intersect(GetColors(X), Ally1), 2)] -> Card
+    Add(Card)
+    [Any where ContainsAtLeast(Intersect(GetColors(X), Ally2), 2)] -> Card
+    Add(Card)
+
+
+Uncommons: 2
+    Repeat 6 {
+        [Any where Subset(GetColors(X), Ally1)] -> Card
+        Add(Card)
+        [Any where Subset(GetColors(X), Ally2)] -> Card
+        Add(Card)
+    }
+
+Commons: 4
+    Repeat 20 {
+        [Any where Subset(GetColors(X), Ally1)] -> Card
+        Add(Card)
+        [Any where Subset(GetColors(X), Ally2)] -> Card
+        Add(Card)
+    }

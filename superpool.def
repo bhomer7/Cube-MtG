@@ -4,25 +4,25 @@ Lands: 1
     Shards -> FinalColors
     FinalColors  /> FC, SC
     LandFullColors = [FC, SC, 'Colorless']
-    Repeat 2 {
+    Repeat 1 {
         [Any where Subset(GetColors(X), LandFullColors) and Intersects(GetColors(X), FinalColors)] -> Card
         Add(Card)
     }
 
 Rares: 1
-    Repeat 2 {
+    Repeat 1 {
         [Any where Subset(GetColors(X), FinalColors) or ContainsExact(GetColors(X), 0)] -> Card
         Add(Card)
     }
 
 Uncommons: 2
-    Repeat 6 {
+    Repeat 3 {
         [Any where Subset(GetColors(X), FinalColors) or ContainsExact(GetColors(X), 0)] -> Card
         Add(Card)
     }
 
 Commons: 4
-    Repeat 20 {
+    Repeat 10 {
         [Any where Subset(GetColors(X), FinalColors) or ContainsExact(GetColors(X), 0)] -> Card
         Add(Card)
     }

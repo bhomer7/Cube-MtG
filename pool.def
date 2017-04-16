@@ -29,7 +29,8 @@ Commons: 4
         SColorList -> Card
         Add(Card)
     }
-    GetList('Allies') -> Card
+    Allies = [FColor, SColor]
+    [GetList('Allies') where Subset(GetColors(X), Allies)] -> Card
     Add(Card)
     GetList('Colorless') -> Card
     Add(Card)

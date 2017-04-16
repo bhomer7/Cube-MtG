@@ -20,7 +20,6 @@ Rares: 1
     [Any where ContainsAtLeast(Intersect(GetColors(X), Ally2), 2)] -> Card
     Add(Card)
 
-
 Uncommons: 2
     Repeat 6 {
         [Any where Subset(GetColors(X), Ally1)] -> Card

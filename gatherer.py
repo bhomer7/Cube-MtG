@@ -4,7 +4,7 @@ import os
 import urllib.request
 
 from bs4 import BeautifulSoup
-# Future Work. Support looking up without mvid number, Fix split cards
+# Future Work. Support looking up without mvid number, Fix split cards, CMC extraction, Type Extraction
 
 
 def split_and_cut(s, txt, ind, *args):

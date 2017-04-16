@@ -330,6 +330,8 @@ def following(lst, val):
 
 def get_color(cd):
     res = list(get_color_identity(cd))
+    if 'Colorless' in res:
+        res.remove('Colorless')
     return res
 
 
@@ -491,19 +493,6 @@ def p_add_expression(p):
     p[0] = AddNode(p[3])
 
 
-def p_separator_list(p):
-    """id_list : ID
-               | id_list COMMA ID
-       val_listp : val
-                 | val_listp COMMA val"""
-    if DEBUG:
-        print(inspect.stack()[0][3])
-    if len(p) == 4:
-        p[0] = p[1] + [p[3]]
-    else:
-        p[0] = [p[1]]
-
-
 def p_val_list(p):
     """val_list : LBRACKET val_listp RBRACKET"""
     if DEBUG:
@@ -547,6 +536,13 @@ def p_val_comprehension(p):
     p[0] = ComprehensionNode(p[2], p[4])
 
 
+def p_prop(p):
+    """prop : PROPOSITION LPAREN val_listp RPAREN"""
+    if DEBUG:
+        print(inspect.stack()[0][3])
+    p[0] = PropositionNode(p[1], *p[3])
+
+
 def p_prop_nested(p):
     """prop : LPAREN prop RPAREN"""
     if DEBUG:
@@ -575,11 +571,17 @@ def p_prop_and(p):
     p[0] = PropositionNode('And', p[1], p[3])
 
 
-def p_prop(p):
-    """prop : PROPOSITION LPAREN val_listp RPAREN"""
+def p_separator_list(p):
+    """id_list : ID
+               | id_list COMMA ID
+       val_listp : val
+                 | val_listp COMMA val"""
     if DEBUG:
         print(inspect.stack()[0][3])
-    p[0] = PropositionNode(p[1], *p[3])
+    if len(p) == 4:
+        p[0] = p[1] + [p[3]]
+    else:
+        p[0] = [p[1]]
 
 
 reserved = {
@@ -644,10 +646,10 @@ def t_INTEGER(tok):
 
 @TOKEN(r'[a-zA-Z_][a-zA-Z0-9_]*')
 def t_ID(tok):
-    if DEBUG:
-        print(inspect.stack()[0][3], tok)
     if tok.value in reserved:
         tok.type = reserved[tok.value]
+    if DEBUG:
+        print(inspect.stack()[0][3], tok)
     return tok
 
 
@@ -708,5 +710,5 @@ def create_tree(in_file):
     in_contents = ''
     with open(in_file) as in_file_obj:
         in_contents = in_file_obj.read()
-    result = parser.parse(in_contents, lexer=lexer)
+    result = parser.parse(in_contents, lexer=lexer, debug=DEBUG)
     return result

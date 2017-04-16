@@ -1,5 +1,3 @@
-///mvid:205957 qty:1 name:Ajani Goldmane loc:Deck
-1 Ajani Goldmane
 ///mvid:397885 qty:1 name:Apocalypse Hydra loc:Deck
 1 Apocalypse Hydra
 ///mvid:370627 qty:1 name:Archangel of Thune loc:Deck
@@ -16,42 +14,46 @@
 1 Chandra Ablaze
 ///mvid:290528 qty:1 name:Collective Blessing loc:Deck
 1 Collective Blessing
-///mvid:240030 qty:1 name:Conjurer's Closet loc:Deck
-1 Conjurer's Closet
 ///mvid:380403 qty:1 name:Dictate of the Twin Gods loc:Deck
 1 Dictate of the Twin Gods
 ///mvid:394548 qty:1 name:Dragonlord Kolaghan loc:Deck
 1 Dragonlord Kolaghan
 ///mvid:262860 qty:1 name:Drogskol Reaver loc:Deck
 1 Drogskol Reaver
+///mvid:382257 qty:1 name:Edric, Spymaster of Trest loc:Deck
+1 Edric, Spymaster of Trest
 ///mvid:244740 qty:1 name:Elbrus, the Binding Blade loc:Deck
 1 Elbrus, the Binding Blade
 ///mvid:215080 qty:1 name:Engulfing Slagwurm loc:Deck
 1 Engulfing Slagwurm
 ///mvid:401878 qty:1 name:Felidar Sovereign loc:Deck
 1 Felidar Sovereign
+///mvid:83702 qty:1 name:Gleancrawler loc:Deck
+1 Gleancrawler
 ///mvid:370420 qty:1 name:Grand Arbiter Augustin IV loc:Deck
 1 Grand Arbiter Augustin IV
 ///mvid:270960 qty:1 name:Grave Betrayal loc:Deck
 1 Grave Betrayal
+///mvid:193441 qty:1 name:Keening Stone loc:Deck
+1 Keening Stone
 ///mvid:50445 qty:1 name:Kokusho, the Evening Star loc:Deck
 1 Kokusho, the Evening Star
 ///mvid:366469 qty:1 name:Lazav, Dimir Mastermind loc:Deck
 1 Lazav, Dimir Mastermind
-///mvid:185812 qty:1 name:Malfegor loc:Deck
-1 Malfegor
-///mvid:405295 qty:1 name:Mazirek, Kraul Death Priest loc:Deck
-1 Mazirek, Kraul Death Priest
+///mvid:425901 qty:1 name:Liliana of the Veil loc:Deck
+1 Liliana of the Veil
 ///mvid:378523 qty:1 name:Mogis, God of Slaughter loc:Deck
 1 Mogis, God of Slaughter
 ///mvid:209717 qty:1 name:Myr Battlesphere loc:Deck
 1 Myr Battlesphere
+///mvid:410013 qty:1 name:Olivia, Mobilized for War loc:Deck
+1 Olivia, Mobilized for War
+///mvid:401973 qty:1 name:Omnath, Locus of Rage loc:Deck
+1 Omnath, Locus of Rage
 ///mvid:23202 qty:1 name:Overabundance loc:Deck
 1 Overabundance
-///mvid:83201 qty:1 name:Phyrexian Arena loc:Deck
-1 Phyrexian Arena
-///mvid:366416 qty:1 name:Prime Speaker Zegana loc:Deck
-1 Prime Speaker Zegana
+///mvid:74027 qty:1 name:Oyobi, Who Split the Heavens loc:Deck
+1 Oyobi, Who Split the Heavens
 ///mvid:417759 qty:1 name:Saheeli Rai loc:Deck
 1 Saheeli Rai
 ///mvid:74509 qty:1 name:Sakashima the Impostor loc:Deck
@@ -68,8 +70,6 @@
 1 Sphinx-Bone Wand
 ///mvid:253641 qty:1 name:Trostani, Selesnya's Voice loc:Deck
 1 Trostani, Selesnya's Voice
-///mvid:97212 qty:1 name:Ulasht, the Hate Seed loc:Deck
-1 Ulasht, the Hate Seed
 ///mvid:46557 qty:1 name:Vedalken Archmage loc:Deck
 1 Vedalken Archmage
 ///mvid:23188 qty:1 name:Vile Consumption loc:Deck

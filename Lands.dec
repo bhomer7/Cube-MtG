@@ -6,8 +6,6 @@
 1 Blackcleave Cliffs
 ///mvid:391804 qty:1 name:Blossoming Sands loc:Deck
 1 Blossoming Sands
-///mvid:259680 qty:1 name:Cathedral of War loc:Deck
-1 Cathedral of War
 ///mvid:410038 qty:1 name:Choked Estuary loc:Deck
 1 Choked Estuary
 ///mvid:213775 qty:1 name:Contested War Zone loc:Deck
@@ -62,8 +60,6 @@
 1 Rootbound Crag
 ///mvid:189626 qty:1 name:Sejiri Refuge loc:Deck
 1 Sejiri Refuge
-///mvid:157976 qty:1 name:Springjack Pasture loc:Deck
-1 Springjack Pasture
 ///mvid:249736 qty:1 name:Sunpetal Grove loc:Deck
 1 Sunpetal Grove
 ///mvid:373734 qty:1 name:Temple of Deceit loc:Deck
@@ -72,8 +68,6 @@
 1 Terrain Generator
 ///mvid:189640 qty:1 name:Veinfire Borderpost loc:Deck
 1 Veinfire Borderpost
-///mvid:113543 qty:1 name:Vesuva loc:Deck
-1 Vesuva
 ///mvid:89016 qty:1 name:Vitu-Ghazi, the City-Tree loc:Deck
 1 Vitu-Ghazi, the City-Tree
 ///mvid:5263 qty:1 name:Volrath's Stronghold loc:Deck

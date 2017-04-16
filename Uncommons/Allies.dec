@@ -8,6 +8,8 @@
 1 Behemoth Sledge
 ///mvid:174917 qty:1 name:Blightning loc:Deck
 1 Blightning
+///mvid:414486 qty:1 name:Bloodhall Priest loc:Deck
+1 Bloodhall Priest
 ///mvid:417749 qty:1 name:Cloudblazer loc:Deck
 1 Cloudblazer
 ///mvid:83850 qty:1 name:Dimir Doppelganger loc:Deck
@@ -36,8 +38,6 @@
 1 Silumgar's Command
 ///mvid:97109 qty:1 name:Sky Hussar loc:Deck
 1 Sky Hussar
-///mvid:394725 qty:1 name:Swift Warkite loc:Deck
-1 Swift Warkite
 ///mvid:423805 qty:1 name:Tezzeret's Touch loc:Deck
 1 Tezzeret's Touch
 ///mvid:183017 qty:1 name:Thopter Foundry loc:Deck
@@ -48,5 +48,3 @@
 1 Unlicensed Disintegration
 ///mvid:180344 qty:1 name:Vagrant Plowbeasts loc:Deck
 1 Vagrant Plowbeasts
-///mvid:420648 qty:1 name:Grave Upheaval loc:SB
-SB: 1 Grave Upheaval

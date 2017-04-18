@@ -1,0 +1,26 @@
+Lands: 1
+    Colors = ['White', 'Blue', 'Black', 'Red', 'Green']
+    Allies = Zip(Colors, Rotate(Colors,1))
+    Allies -> Ally
+    Repeat 3 {
+        [Any where Subset(GetColors(X), Ally)] -> Card
+        Add(Card)
+    }
+
+Rares: 1
+    Repeat 3 {
+        [Any where Subset(GetColors(X), Ally)] -> Card
+        Add(Card)
+    }
+
+Uncommons: 2
+    Repeat 9 {
+        [Any where Subset(GetColors(X), Ally)] -> Card
+        Add(Card)
+    }
+
+Commons: 4
+    Repeat 30 {
+        [Any where Subset(GetColors(X), Ally)] -> Card
+        Add(Card)
+    }

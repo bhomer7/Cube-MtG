@@ -1,0 +1,29 @@
+Lands: 1
+    Any -> Card
+    Add(Card)
+
+Rares: 1
+    Any -> Card
+    Add(Card)
+
+Uncommons: 2
+    Repeat 3 {
+        Any -> Card
+        Add(Card)
+    }
+
+Commons: 4
+    GetList('White') -> Card
+    Add(Card)
+    GetList('Blue') -> Card
+    Add(Card)
+    GetList('Black') -> Card
+    Add(Card)
+    GetList('Red') -> Card
+    Add(Card)
+    GetList('Green') -> Card
+    Add(Card)
+    Repeat 5 {
+        Any -> Card
+        Add(Card)
+    }

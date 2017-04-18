@@ -1,0 +1,19 @@
+Lands: 1
+    Any -> Card
+    Add(Card)
+
+Rares: 1
+    Any -> Card
+    Add(Card)
+
+Uncommons: 2
+    Repeat 3 {
+        Any -> Card
+        Add(Card)
+    }
+
+Commons: 4
+    Repeat 10 {
+        Any -> Card
+        Add(Card)
+    }

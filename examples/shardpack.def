@@ -1,0 +1,35 @@
+Lands: 1
+    Colors = ['White', 'Blue', 'Black', 'Red', 'Green']
+    Shards = Zip(Colors, Rotate(Colors,1), Rotate(Colors,2))
+    Shards -> Shard
+    [Any where Subset(GetColors(X), Shard)] -> Card
+    Add(Card)
+
+Rares: 1
+    [Any where Subset(GetColors(X), Shard)] -> Card
+    Add(Card)
+
+Uncommons: 2
+    Repeat 2 {
+        [Any where Subset(GetColors(X), Shard) and ContainsAtLeast(GetColors(X), 1)] -> Card
+        Add(Card)
+    }
+    [Any where ContainsExact(GetColors(X), 0)] -> Card
+    Add(Card)
+
+Commons: 4
+    Shard /> Ally1, Primary, Ally2
+    FAlly = [Ally1, Primary]
+    SAlly = [Primary, Ally2]
+    Repeat 4 {
+        [Any where Subset(GetColors(X), FAlly) and ContainsAtLeast(GetColors(X), 1)] -> Card
+        Add(Card)
+    }
+    Repeat 4 {
+        [Any where Subset(GetColors(X), SAlly) and ContainsAtLeast(GetColors(X), 1)] -> Card
+        Add(Card)
+    }
+    [Any where ContainsExact(GetColors(X), 0)] -> Card
+    Add(Card)
+    [Any where Subset(GetColors(X), Shard)] -> Card
+    Add(Card)

@@ -176,7 +176,12 @@ class AssignNode(Node):
         return str(self)
 
     def eval(self, pack):
-        return self.fun(self.val.eval(pack), *self.targets)
+        res = None
+        try:
+            res = self.fun(self.val.eval(pack), *self.targets)
+        except Exception as e:
+            print('Failed to assign: ', self)
+        return res
 
 
 class AddNode(Node):

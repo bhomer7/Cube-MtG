@@ -23,7 +23,7 @@ RarityName:
     } (repeat Commands N times)
 
     ContainsAtLeast(LName, N) (There are at least N elements remaining in LName)
-    ContainsAtLeast(LName, N) (There are exactly N elements remaining in LName)
+    ContainsExact(LName, N) (There are exactly N elements remaining in LName)
     Intersects(LName, LName2) (There is at least 1 element in common between LName and LName2)
     Subset(LName, LName2) (Every element in  LName is in LName2)
     Or(Prop1, Prop2) (Ors the two propositions together. Can also be written Prop1 or Prop2)

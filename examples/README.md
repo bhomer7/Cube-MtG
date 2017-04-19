@@ -1,17 +1,10 @@
 # Pack/Pool Descriptions
 No pack/pool can generate more than one copy of the same card.
 
-Some packs/pools can't always generate large numbers of packs `rerun.sh` can help with this
-
 Example pools with them can be found in `pool_results`
 
 ## `focusedpool.def`
 Creates a 60 card pool with color identity entirely in one shard with 60 cards generated per 'pack'.
-Generally can't generate more than 5 packs in a reasonable time
-* 1 Copy of each Land
-* 1 Copy of each Rare
-* 2 Copies of each Uncommon
-* 4 Copies of each Common
 * 4 Lands that include the central color of the shard for sure in identity
 * 2 Rares that include the central color of the shard for sure in identity
 * 2 Rares with 1 contained in each ally pair in the shard
@@ -20,10 +13,6 @@ Generally can't generate more than 5 packs in a reasonable time
 
 ## `packwars.def`
 Creates a 15 card pack for card wars with no basic lands
-* 1 Copy of each Land
-* 1 Copy of each Rare
-* 2 Copies of each Uncommon
-* 4 Copies of each Common
 * 1 Rares at random with at least 2 colors
 * 1 Land at random which has a color identity contained within that of the rare
 * 3 Uncommons at random which have a color identity contained within that of the rare
@@ -31,20 +20,12 @@ Creates a 15 card pack for card wars with no basic lands
 
 ## `rampedpack.def`
 Creates a 15 card pack for card wars with no commons.
-Generally can't generate more than 16 packs in a reasonable time
-* 1 Copy of each Land
-* 2 Copy of each Rare
-* 4 Copies of each Uncommon
 * 2 Lands at random
 * 5 Rares at random
 * 8 Uncommons at random
 
 ## `random.def`
-Creates a 15 card pack with no restrictions except for rarity. Should always be able to generate 40 packs
-* 1 Copy of each Land
-* 1 Copy of each Rare
-* 2 Copies of each Uncommon
-* 4 Copies of each Common
+Creates a 15 card pack with no restrictions except for rarity.
 * 1 Land at random
 * 1 Rare at random
 * 3 Uncommons at random
@@ -52,27 +33,20 @@ Creates a 15 card pack with no restrictions except for rarity. Should always be 
 
 ## `shardpack.def`
 Generates a 15 card pack intended to reprsent spread over a shard(is entirely contained within the shard).
-Currently non-functional
-* 1 Copy of each Land
-* 1 Copy of each Rare
-* 2 Copies of each Uncommon
-* 4 Copies of each Common
-* 1 Land at random with color identity subset of a shard
-* 1 Rare at random with color identity subset of the shard
+* 1 Land at random with color identity subset of a shard containing primary color or colorless(25% of the time)
+* 1 Rare at random with color identity subset of the shard containing primary color or colorless(25% of the time)
 * 2 Uncommons at random with color identity a subset of the shard with at least one color
 * 1 Uncommon at random that is colorless
-* 4 Commons at random with color identiy a subset of the first ally with at least one color
-* 4 Commons at random with color identiy a subset of the second ally with at least one color
+* 1 Common at random with color identity equal to the first allied color in the shard
+* 1 Common at random with color identity equal to the second allied color in the shard
+* 4 Commons at random with color identities equal to the primary color in the shard
+* 1 Common at random with color identity equal to the first allied pair in the shard
+* 1 Common at random with color identity equal to the second allied pair in the shard
+* 1 Common at random with color idenity a subset of the shard
 * 1 Common at random that is colorless
-* 1 Common at random with color identity a subset of the shard
 
-## `standardpack.def
+## `standardpack.def`
 The standard 15 card pack we've found generates a reasonably well balanced cube.
-Should always be able to generate 40 packs given enough time
-* 1 Copy of each Land
-* 1 Copy of each Rare
-* 2 Copies of each Uncommon
-* 4 Copies of each Common
 * 1 Land at random
 * 1 Rare at random
 * 1 Uncommon at random with an ally identity
@@ -88,18 +62,14 @@ Should always be able to generate 40 packs given enough time
 * 2 Commons at random
 
 ## `superpool.def`
-Creates a 45 card pool entirely with an ally pair. Generally cannot generate more than 10 packs in a reasonable time.
-* 1 Copy of each Land
-* 1 Copy of each Rare
-* 2 Copies of each Uncommon
-* 4 Copies of each Common
+Creates a 45 card pool entirely with an ally pair.
 * 3 Land at random with color idenity contained with an ally pair
 * 3 Rares at random with color identity contained within the ally pair
 * 9 Uncommons at random with color identity contained within the ally pair
 * 30 Commons at random with color identity contained within the ally pair
 
 ## `unfocusedpool.def`
-Creates a 15 Card pack. Can be difficult to generate more than 36 packs in a reasonable time.
+Creates a 15 Card pack.
 * 1 Land at ranodm
 * 1 Rare at random
 * 3 Uncommons at random

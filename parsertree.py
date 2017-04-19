@@ -46,6 +46,7 @@ class RarityListNode(Node):
         return str(self)
 
     def eval(self, pack):
+        variables['pack'] = pack
         for node in self.lst:
             node.eval(pack)
         return True
@@ -181,6 +182,7 @@ class AssignNode(Node):
             res = self.fun(self.val.eval(pack), *self.targets)
         except Exception as e:
             print('Failed to assign: ', self)
+            raise
         return res
 
 
@@ -243,7 +245,7 @@ class AnyNode(Node):
         return str(self)
 
     def eval(self, pack):
-        combined_card_list = [k for k, v in variables['_master_card_list'].items() if v > 0 and k not in pack]
+        combined_card_list = [k for k in variables['_master_card_list'] if k not in pack]
         return combined_card_list
 
 
@@ -346,7 +348,7 @@ def zip_lists(*args):
 
 
 def get_list(fname):
-    res = [cd for cd in variables['_master_file_list'][fname] if variables['_master_card_list'][cd] > 0]
+    res = [cd for cd in variables['_master_file_list'][fname] if cd not in variables['pack']]
     return res
 
 
@@ -416,7 +418,7 @@ functions = {
 propositions = {
     'Intersects': intersects,
     'ContainsAtLeast': contains_at_least,
-    'ContainsExact': contains_exact,
+    'ContainsExactly': contains_exact,
     'Contains': contains,
     'Subset': subset,
     'Or': or_props,

@@ -1,150 +1,120 @@
-///mvid:413784 qty:1 name:Mishra's Factory loc:Deck
-1 Mishra's Factory
-///mvid:193441 qty:1 name:Keening Stone loc:Deck
-1 Keening Stone
-///mvid:417760 qty:1 name:Unlicensed Disintegration loc:Deck
-1 Unlicensed Disintegration
+///mvid:4595 qty:1 name:Winding Canyons loc:Deck
+1 Winding Canyons
+///mvid:23202 qty:1 name:Overabundance loc:Deck
+1 Overabundance
 ///mvid:227077 qty:1 name:Scourge of Geier Reach loc:Deck
 1 Scourge of Geier Reach
+///mvid:423776 qty:1 name:Heroic Intervention loc:Deck
+1 Heroic Intervention
 ///mvid:205058 qty:1 name:Temple Bell loc:Deck
 1 Temple Bell
-///mvid:382261 qty:1 name:Enraged Revolutionary loc:Deck
-1 Enraged Revolutionary
-///mvid:409902 qty:1 name:Dance with Devils loc:Deck
-1 Dance with Devils
-///mvid:265371 qty:1 name:Thrill-Kill Assassin loc:Deck
-1 Thrill-Kill Assassin
-///mvid:397850 qty:1 name:Goblin Fireslinger loc:Deck
-1 Goblin Fireslinger
-///mvid:370462 qty:1 name:Executioner's Capsule loc:Deck
-1 Executioner's Capsule
-///mvid:398625 qty:1 name:Fleshbag Marauder loc:Deck
-1 Fleshbag Marauder
-///mvid:391875 qty:1 name:Mardu Shadowspear loc:Deck
-1 Mardu Shadowspear
-///mvid:409850 qty:1 name:Call the Bloodline loc:Deck
-1 Call the Bloodline
-///mvid:236907 qty:1 name:Solemn Simulacrum loc:Deck
-1 Solemn Simulacrum
-///mvid:184991 qty:1 name:Shambling Remains loc:Deck
-1 Shambling Remains
-///mvid:230789 qty:1 name:Nephalia Drownyard loc:Deck
-1 Nephalia Drownyard
-///mvid:74027 qty:1 name:Oyobi, Who Split the Heavens loc:Deck
-1 Oyobi, Who Split the Heavens
-///mvid:394705 qty:1 name:Silumgar's Command loc:Deck
-1 Silumgar's Command
-///mvid:198393 qty:1 name:Marshal's Anthem loc:Deck
-1 Marshal's Anthem
-///mvid:417765 qty:1 name:Aetherflux Reservoir loc:Deck
-1 Aetherflux Reservoir
-///mvid:265371 qty:1 name:Thrill-Kill Assassin loc:Deck
-1 Thrill-Kill Assassin
-///mvid:4720 qty:1 name:Rootwater Diver loc:Deck
-1 Rootwater Diver
-///mvid:423700 qty:1 name:Efficient Construction loc:Deck
-1 Efficient Construction
-///mvid:194204 qty:1 name:Leaden Myr loc:Deck
-1 Leaden Myr
-///mvid:174976 qty:1 name:Kiss of the Amesha loc:Deck
-1 Kiss of the Amesha
-///mvid:369017 qty:1 name:Azorius Cluestone loc:Deck
-1 Azorius Cluestone
-///mvid:194378 qty:1 name:Silver Myr loc:Deck
-1 Silver Myr
-///mvid:398462 qty:1 name:Artificer's Epiphany loc:Deck
-1 Artificer's Epiphany
-///mvid:417788 qty:1 name:Foundry Inspector loc:Deck
-1 Foundry Inspector
-///mvid:129744 qty:1 name:Spirit Link loc:Deck
-1 Spirit Link
-///mvid:204978 qty:1 name:Mystifying Maze loc:Deck
-1 Mystifying Maze
-///mvid:244740 qty:1 name:Elbrus, the Binding Blade loc:Deck
-1 Elbrus, the Binding Blade
-///mvid:366273 qty:1 name:AEtherize loc:Deck
-1 AEtherize
-///mvid:417670 qty:1 name:Ovalchase Daredevil loc:Deck
-1 Ovalchase Daredevil
-///mvid:205058 qty:1 name:Temple Bell loc:Deck
-1 Temple Bell
-///mvid:423728 qty:1 name:Gifted Aetherborn loc:Deck
-1 Gifted Aetherborn
-///mvid:382261 qty:1 name:Enraged Revolutionary loc:Deck
-1 Enraged Revolutionary
-///mvid:417710 qty:1 name:Terror of the Fairgrounds loc:Deck
-1 Terror of the Fairgrounds
-///mvid:397722 qty:1 name:Lightning Bolt loc:Deck
-1 Lightning Bolt
-///mvid:423698 qty:1 name:Disallow loc:Deck
-1 Disallow
-///mvid:370378 qty:1 name:Etherium Sculptor loc:Deck
-1 Etherium Sculptor
-///mvid:29908 qty:1 name:Restless Dreams loc:Deck
-1 Restless Dreams
-///mvid:425864 qty:1 name:Ghostly Flicker loc:Deck
-1 Ghostly Flicker
-///mvid:417792 qty:1 name:Iron League Steed loc:Deck
-1 Iron League Steed
-///mvid:227222 qty:1 name:AEther Adept loc:Deck
-1 AEther Adept
-///mvid:398523 qty:1 name:Rogue's Passage loc:Deck
-1 Rogue's Passage
-///mvid:195402 qty:1 name:Chandra Ablaze loc:Deck
-1 Chandra Ablaze
-///mvid:176438 qty:1 name:Sangrite Surge loc:Deck
-1 Sangrite Surge
-///mvid:414486 qty:1 name:Bloodhall Priest loc:Deck
-1 Bloodhall Priest
-///mvid:221520 qty:1 name:Angel's Feather loc:Deck
-1 Angel's Feather
-///mvid:174973 qty:1 name:Feral Hydra loc:Deck
-1 Feral Hydra
-///mvid:409908 qty:1 name:Fiery Temper loc:Deck
-1 Fiery Temper
-///mvid:370557 qty:1 name:Krosan Grip loc:Deck
-1 Krosan Grip
-///mvid:106575 qty:1 name:Streetbreaker Wurm loc:Deck
-1 Streetbreaker Wurm
-///mvid:265371 qty:1 name:Thrill-Kill Assassin loc:Deck
-1 Thrill-Kill Assassin
-///mvid:398625 qty:1 name:Fleshbag Marauder loc:Deck
-1 Fleshbag Marauder
-///mvid:97086 qty:1 name:Jagged Poppet loc:Deck
-1 Jagged Poppet
-///mvid:5542 qty:1 name:Falter loc:Deck
-1 Falter
-///mvid:220261 qty:1 name:Swiftfoot Boots loc:Deck
-1 Swiftfoot Boots
-///mvid:19870 qty:1 name:Spidersilk Armor loc:Deck
-1 Spidersilk Armor
-///mvid:139515 qty:1 name:Mosswort Bridge loc:Deck
-1 Mosswort Bridge
-///mvid:416827 qty:1 name:Selvala, Heart of the Wilds loc:Deck
-1 Selvala, Heart of the Wilds
-///mvid:397869 qty:1 name:Cranial Plating loc:Deck
-1 Cranial Plating
-///mvid:417760 qty:1 name:Unlicensed Disintegration loc:Deck
-1 Unlicensed Disintegration
-///mvid:417760 qty:1 name:Unlicensed Disintegration loc:Deck
-1 Unlicensed Disintegration
-///mvid:417710 qty:1 name:Terror of the Fairgrounds loc:Deck
-1 Terror of the Fairgrounds
-///mvid:87949 qty:1 name:Coalhauler Swine loc:Deck
-1 Coalhauler Swine
-///mvid:213755 qty:1 name:Quilled Slagwurm loc:Deck
-1 Quilled Slagwurm
-///mvid:409902 qty:1 name:Dance with Devils loc:Deck
-1 Dance with Devils
-///mvid:382261 qty:1 name:Enraged Revolutionary loc:Deck
-1 Enraged Revolutionary
-///mvid:373575 qty:1 name:Hero's Downfall loc:Deck
-1 Hero's Downfall
+///mvid:141972 qty:1 name:Roughshod Mentor loc:Deck
+1 Roughshod Mentor
+///mvid:409862 qty:1 name:Gisa's Bidding loc:Deck
+1 Gisa's Bidding
 ///mvid:366238 qty:1 name:Skullcrack loc:Deck
 1 Skullcrack
-///mvid:177501 qty:1 name:Goblin Bushwhacker loc:Deck
-1 Goblin Bushwhacker
+///mvid:382261 qty:1 name:Enraged Revolutionary loc:Deck
+1 Enraged Revolutionary
+///mvid:409902 qty:1 name:Dance with Devils loc:Deck
+1 Dance with Devils
+///mvid:416810 qty:1 name:Goblin Racketeer loc:Deck
+1 Goblin Racketeer
+///mvid:369035 qty:1 name:Gruul Cluestone loc:Deck
+1 Gruul Cluestone
+///mvid:97086 qty:1 name:Jagged Poppet loc:Deck
+1 Jagged Poppet
+///mvid:397850 qty:1 name:Goblin Fireslinger loc:Deck
+1 Goblin Fireslinger
 ///mvid:417773 qty:1 name:Chief of the Foundry loc:Deck
 1 Chief of the Foundry
+///mvid:204978 qty:1 name:Mystifying Maze loc:Deck
+1 Mystifying Maze
+///mvid:380403 qty:1 name:Dictate of the Twin Gods loc:Deck
+1 Dictate of the Twin Gods
+///mvid:394502 qty:1 name:Atarka's Command loc:Deck
+1 Atarka's Command
+///mvid:417795 qty:1 name:Metalwork Colossus loc:Deck
+1 Metalwork Colossus
+///mvid:221520 qty:1 name:Angel's Feather loc:Deck
+1 Angel's Feather
+///mvid:370557 qty:1 name:Krosan Grip loc:Deck
+1 Krosan Grip
+///mvid:417677 qty:1 name:Underhanded Designs loc:Deck
+1 Underhanded Designs
+///mvid:382277 qty:1 name:Grenzo's Cutthroat loc:Deck
+1 Grenzo's Cutthroat
+///mvid:420636 qty:1 name:Goblin Spymaster loc:Deck
+1 Goblin Spymaster
+///mvid:397850 qty:1 name:Goblin Fireslinger loc:Deck
+1 Goblin Fireslinger
+///mvid:177501 qty:1 name:Goblin Bushwhacker loc:Deck
+1 Goblin Bushwhacker
+///mvid:106575 qty:1 name:Streetbreaker Wurm loc:Deck
+1 Streetbreaker Wurm
+///mvid:97086 qty:1 name:Jagged Poppet loc:Deck
+1 Jagged Poppet
+///mvid:194063 qty:1 name:Copper Myr loc:Deck
+1 Copper Myr
+///mvid:417814 qty:1 name:Workshop Assistant loc:Deck
+1 Workshop Assistant
+///mvid:233239 qty:1 name:Moorland Haunt loc:Deck
+1 Moorland Haunt
+///mvid:370420 qty:1 name:Grand Arbiter Augustin IV loc:Deck
+1 Grand Arbiter Augustin IV
+///mvid:383255 qty:1 name:Genesis Hydra loc:Deck
+1 Genesis Hydra
+///mvid:417812 qty:1 name:Whirlermaker loc:Deck
+1 Whirlermaker
+///mvid:205058 qty:1 name:Temple Bell loc:Deck
+1 Temple Bell
+///mvid:423698 qty:1 name:Disallow loc:Deck
+1 Disallow
+///mvid:19870 qty:1 name:Spidersilk Armor loc:Deck
+1 Spidersilk Armor
+///mvid:425846 qty:1 name:Rootborn Defenses loc:Deck
+1 Rootborn Defenses
+///mvid:126281 qty:1 name:Celestial Crusader loc:Deck
+1 Celestial Crusader
+///mvid:383181 qty:1 name:Ajani's Pridemate loc:Deck
+1 Ajani's Pridemate
+///mvid:129744 qty:1 name:Spirit Link loc:Deck
+1 Spirit Link
+///mvid:369017 qty:1 name:Azorius Cluestone loc:Deck
+1 Azorius Cluestone
+///mvid:159688 qty:1 name:Sigiled Behemoth loc:Deck
+1 Sigiled Behemoth
+///mvid:271100 qty:1 name:Keening Apparition loc:Deck
+1 Keening Apparition
+///mvid:417788 qty:1 name:Foundry Inspector loc:Deck
+1 Foundry Inspector
+///mvid:189640 qty:1 name:Veinfire Borderpost loc:Deck
+1 Veinfire Borderpost
+///mvid:193596 qty:1 name:Sphinx-Bone Wand loc:Deck
+1 Sphinx-Bone Wand
+///mvid:394502 qty:1 name:Atarka's Command loc:Deck
+1 Atarka's Command
+///mvid:417765 qty:1 name:Aetherflux Reservoir loc:Deck
+1 Aetherflux Reservoir
+///mvid:209289 qty:1 name:Nim Deathmantle loc:Deck
+1 Nim Deathmantle
+///mvid:383357 qty:1 name:Ranger's Guile loc:Deck
+1 Ranger's Guile
+///mvid:194204 qty:1 name:Leaden Myr loc:Deck
+1 Leaden Myr
+///mvid:87949 qty:1 name:Coalhauler Swine loc:Deck
+1 Coalhauler Swine
+///mvid:194168 qty:1 name:Iron Myr loc:Deck
+1 Iron Myr
+///mvid:397850 qty:1 name:Goblin Fireslinger loc:Deck
+1 Goblin Fireslinger
+///mvid:177501 qty:1 name:Goblin Bushwhacker loc:Deck
+1 Goblin Bushwhacker
+///mvid:153314 qty:1 name:Firespout loc:Deck
+1 Firespout
+///mvid:97086 qty:1 name:Jagged Poppet loc:Deck
+1 Jagged Poppet
 ///mvid:161291 qty:1 name:Breath of Malfegor loc:Deck
 1 Breath of Malfegor
+///mvid:417773 qty:1 name:Chief of the Foundry loc:Deck
+1 Chief of the Foundry

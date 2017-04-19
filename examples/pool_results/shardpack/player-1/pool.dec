@@ -1,150 +1,120 @@
 ///mvid:177583 qty:1 name:Raging Ravine loc:Deck
 1 Raging Ravine
-///mvid:270960 qty:1 name:Grave Betrayal loc:Deck
-1 Grave Betrayal
-///mvid:383255 qty:1 name:Genesis Hydra loc:Deck
-1 Genesis Hydra
-///mvid:417670 qty:1 name:Ovalchase Daredevil loc:Deck
-1 Ovalchase Daredevil
-///mvid:221520 qty:1 name:Angel's Feather loc:Deck
-1 Angel's Feather
-///mvid:409908 qty:1 name:Fiery Temper loc:Deck
-1 Fiery Temper
-///mvid:409902 qty:1 name:Dance with Devils loc:Deck
-1 Dance with Devils
-///mvid:416810 qty:1 name:Goblin Racketeer loc:Deck
-1 Goblin Racketeer
-///mvid:370417 qty:1 name:Kodama's Reach loc:Deck
-1 Kodama's Reach
-///mvid:5542 qty:1 name:Falter loc:Deck
-1 Falter
-///mvid:373575 qty:1 name:Hero's Downfall loc:Deck
-1 Hero's Downfall
-///mvid:177501 qty:1 name:Goblin Bushwhacker loc:Deck
-1 Goblin Bushwhacker
-///mvid:184991 qty:1 name:Shambling Remains loc:Deck
-1 Shambling Remains
-///mvid:417773 qty:1 name:Chief of the Foundry loc:Deck
-1 Chief of the Foundry
-///mvid:29908 qty:1 name:Restless Dreams loc:Deck
-1 Restless Dreams
-///mvid:183005 qty:1 name:Fieldmist Borderpost loc:Deck
-1 Fieldmist Borderpost
-///mvid:193596 qty:1 name:Sphinx-Bone Wand loc:Deck
-1 Sphinx-Bone Wand
-///mvid:129770 qty:1 name:Tidings loc:Deck
-1 Tidings
-///mvid:366399 qty:1 name:Fathom Mage loc:Deck
-1 Fathom Mage
-///mvid:368989 qty:1 name:Armed // Dangerous loc:Deck
-1 Armed // Dangerous
-///mvid:194384 qty:1 name:Gold Myr loc:Deck
-1 Gold Myr
-///mvid:369017 qty:1 name:Azorius Cluestone loc:Deck
-1 Azorius Cluestone
-///mvid:174976 qty:1 name:Kiss of the Amesha loc:Deck
-1 Kiss of the Amesha
-///mvid:230622 qty:1 name:Chapel Geist loc:Deck
-1 Chapel Geist
-///mvid:425979 qty:1 name:Call of the Conclave loc:Deck
-1 Call of the Conclave
-///mvid:414326 qty:1 name:Long Road Home loc:Deck
-1 Long Road Home
-///mvid:129744 qty:1 name:Spirit Link loc:Deck
-1 Spirit Link
-///mvid:417715 qty:1 name:Arborback Stomper loc:Deck
-1 Arborback Stomper
-///mvid:417773 qty:1 name:Chief of the Foundry loc:Deck
-1 Chief of the Foundry
-///mvid:227222 qty:1 name:AEther Adept loc:Deck
-1 AEther Adept
-///mvid:189626 qty:1 name:Sejiri Refuge loc:Deck
-1 Sejiri Refuge
-///mvid:23188 qty:1 name:Vile Consumption loc:Deck
-1 Vile Consumption
-///mvid:413738 qty:1 name:Baleful Strix loc:Deck
-1 Baleful Strix
-///mvid:83546 qty:1 name:Teysa, Orzhov Scion loc:Deck
-1 Teysa, Orzhov Scion
+///mvid:380403 qty:1 name:Dictate of the Twin Gods loc:Deck
+1 Dictate of the Twin Gods
+///mvid:205058 qty:1 name:Temple Bell loc:Deck
+1 Temple Bell
+///mvid:146010 qty:1 name:Doomgape loc:Deck
+1 Doomgape
 ///mvid:209289 qty:1 name:Nim Deathmantle loc:Deck
 1 Nim Deathmantle
-///mvid:175015 qty:1 name:Tidehollow Strix loc:Deck
-1 Tidehollow Strix
-///mvid:29908 qty:1 name:Restless Dreams loc:Deck
-1 Restless Dreams
-///mvid:87923 qty:1 name:Consult the Necrosages loc:Deck
-1 Consult the Necrosages
-///mvid:409845 qty:1 name:Alms of the Vein loc:Deck
-1 Alms of the Vein
-///mvid:74097 qty:1 name:Kami of False Hope loc:Deck
-1 Kami of False Hope
-///mvid:398410 qty:1 name:Whirler Rogue loc:Deck
-1 Whirler Rogue
-///mvid:208225 qty:1 name:Augury Owl loc:Deck
-1 Augury Owl
-///mvid:423700 qty:1 name:Efficient Construction loc:Deck
-1 Efficient Construction
-///mvid:15256 qty:1 name:Junk Diver loc:Deck
-1 Junk Diver
-///mvid:193614 qty:1 name:Skittering Invasion loc:Deck
-1 Skittering Invasion
-///mvid:410040 qty:1 name:Foreboding Ruins loc:Deck
-1 Foreboding Ruins
-///mvid:366469 qty:1 name:Lazav, Dimir Mastermind loc:Deck
-1 Lazav, Dimir Mastermind
-///mvid:425888 qty:1 name:Damnation loc:Deck
-1 Damnation
-///mvid:413738 qty:1 name:Baleful Strix loc:Deck
-1 Baleful Strix
-///mvid:423846 qty:1 name:Untethered Express loc:Deck
-1 Untethered Express
-///mvid:209006 qty:1 name:Bleak Coven Vampires loc:Deck
-1 Bleak Coven Vampires
-///mvid:423723 qty:1 name:Defiant Salvager loc:Deck
-1 Defiant Salvager
-///mvid:397722 qty:1 name:Lightning Bolt loc:Deck
-1 Lightning Bolt
+///mvid:383357 qty:1 name:Ranger's Guile loc:Deck
+1 Ranger's Guile
+///mvid:370462 qty:1 name:Executioner's Capsule loc:Deck
+1 Executioner's Capsule
+///mvid:409902 qty:1 name:Dance with Devils loc:Deck
+1 Dance with Devils
+///mvid:382277 qty:1 name:Grenzo's Cutthroat loc:Deck
+1 Grenzo's Cutthroat
+///mvid:87949 qty:1 name:Coalhauler Swine loc:Deck
+1 Coalhauler Swine
+///mvid:417710 qty:1 name:Terror of the Fairgrounds loc:Deck
+1 Terror of the Fairgrounds
+///mvid:153314 qty:1 name:Firespout loc:Deck
+1 Firespout
+///mvid:161291 qty:1 name:Breath of Malfegor loc:Deck
+1 Breath of Malfegor
 ///mvid:391875 qty:1 name:Mardu Shadowspear loc:Deck
 1 Mardu Shadowspear
+///mvid:417773 qty:1 name:Chief of the Foundry loc:Deck
+1 Chief of the Foundry
+///mvid:161276 qty:1 name:Mistvein Borderpost loc:Deck
+1 Mistvein Borderpost
+///mvid:366469 qty:1 name:Lazav, Dimir Mastermind loc:Deck
+1 Lazav, Dimir Mastermind
+///mvid:198393 qty:1 name:Marshal's Anthem loc:Deck
+1 Marshal's Anthem
+///mvid:394705 qty:1 name:Silumgar's Command loc:Deck
+1 Silumgar's Command
+///mvid:205058 qty:1 name:Temple Bell loc:Deck
+1 Temple Bell
+///mvid:414387 qty:1 name:Haunted Dead loc:Deck
+1 Haunted Dead
+///mvid:391791 qty:1 name:Arashin Cleric loc:Deck
+1 Arashin Cleric
+///mvid:208225 qty:1 name:Augury Owl loc:Deck
+1 Augury Owl
+///mvid:423706 qty:1 name:Metallic Rebuke loc:Deck
+1 Metallic Rebuke
+///mvid:417621 qty:1 name:Gearseeker Serpent loc:Deck
+1 Gearseeker Serpent
+///mvid:74515 qty:1 name:Veil of Secrecy loc:Deck
+1 Veil of Secrecy
 ///mvid:175015 qty:1 name:Tidehollow Strix loc:Deck
 1 Tidehollow Strix
-///mvid:180348 qty:1 name:Hedron Crab loc:Deck
-1 Hedron Crab
-///mvid:409862 qty:1 name:Gisa's Bidding loc:Deck
-1 Gisa's Bidding
-///mvid:194204 qty:1 name:Leaden Myr loc:Deck
-1 Leaden Myr
-///mvid:417792 qty:1 name:Iron League Steed loc:Deck
-1 Iron League Steed
-///mvid:220261 qty:1 name:Swiftfoot Boots loc:Deck
-1 Swiftfoot Boots
-///mvid:121155 qty:1 name:Dark Depths loc:Deck
-1 Dark Depths
-///mvid:240033 qty:1 name:Sigarda, Host of Herons loc:Deck
-1 Sigarda, Host of Herons
-///mvid:180344 qty:1 name:Vagrant Plowbeasts loc:Deck
-1 Vagrant Plowbeasts
-///mvid:380438 qty:1 name:Hydra Broodmaster loc:Deck
-1 Hydra Broodmaster
-///mvid:398572 qty:1 name:Hangarback Walker loc:Deck
-1 Hangarback Walker
-///mvid:126281 qty:1 name:Celestial Crusader loc:Deck
-1 Celestial Crusader
-///mvid:129744 qty:1 name:Spirit Link loc:Deck
-1 Spirit Link
+///mvid:265391 qty:1 name:Lyev Skyknight loc:Deck
+1 Lyev Skyknight
+///mvid:194378 qty:1 name:Silver Myr loc:Deck
+1 Silver Myr
+///mvid:417785 qty:1 name:Filigree Familiar loc:Deck
+1 Filigree Familiar
+///mvid:410038 qty:1 name:Choked Estuary loc:Deck
+1 Choked Estuary
+///mvid:262860 qty:1 name:Drogskol Reaver loc:Deck
+1 Drogskol Reaver
+///mvid:394705 qty:1 name:Silumgar's Command loc:Deck
+1 Silumgar's Command
+///mvid:417765 qty:1 name:Aetherflux Reservoir loc:Deck
+1 Aetherflux Reservoir
+///mvid:423846 qty:1 name:Untethered Express loc:Deck
+1 Untethered Express
+///mvid:409850 qty:1 name:Call the Bloodline loc:Deck
+1 Call the Bloodline
+///mvid:271100 qty:1 name:Keening Apparition loc:Deck
+1 Keening Apparition
+///mvid:208225 qty:1 name:Augury Owl loc:Deck
+1 Augury Owl
+///mvid:425864 qty:1 name:Ghostly Flicker loc:Deck
+1 Ghostly Flicker
+///mvid:417621 qty:1 name:Gearseeker Serpent loc:Deck
+1 Gearseeker Serpent
+///mvid:398462 qty:1 name:Artificer's Epiphany loc:Deck
+1 Artificer's Epiphany
+///mvid:369096 qty:1 name:Dimir Cluestone loc:Deck
+1 Dimir Cluestone
+///mvid:369017 qty:1 name:Azorius Cluestone loc:Deck
+1 Azorius Cluestone
+///mvid:423728 qty:1 name:Gifted Aetherborn loc:Deck
+1 Gifted Aetherborn
+///mvid:417788 qty:1 name:Foundry Inspector loc:Deck
+1 Foundry Inspector
+///mvid:188974 qty:1 name:Firewild Borderpost loc:Deck
+1 Firewild Borderpost
+///mvid:215080 qty:1 name:Engulfing Slagwurm loc:Deck
+1 Engulfing Slagwurm
+///mvid:198393 qty:1 name:Marshal's Anthem loc:Deck
+1 Marshal's Anthem
+///mvid:423846 qty:1 name:Untethered Express loc:Deck
+1 Untethered Express
+///mvid:205058 qty:1 name:Temple Bell loc:Deck
+1 Temple Bell
 ///mvid:414326 qty:1 name:Long Road Home loc:Deck
 1 Long Road Home
-///mvid:366403 qty:1 name:Cloudfin Raptor loc:Deck
-1 Cloudfin Raptor
-///mvid:230624 qty:1 name:Lumberknot loc:Deck
-1 Lumberknot
-///mvid:87342 qty:1 name:Torii Watchward loc:Deck
-1 Torii Watchward
-///mvid:74097 qty:1 name:Kami of False Hope loc:Deck
-1 Kami of False Hope
-///mvid:397841 qty:1 name:Spectral Procession loc:Deck
-1 Spectral Procession
-///mvid:417814 qty:1 name:Workshop Assistant loc:Deck
-1 Workshop Assistant
-///mvid:193614 qty:1 name:Skittering Invasion loc:Deck
-1 Skittering Invasion
+///mvid:194168 qty:1 name:Iron Myr loc:Deck
+1 Iron Myr
+///mvid:204996 qty:1 name:Cultivate loc:Deck
+1 Cultivate
+///mvid:19870 qty:1 name:Spidersilk Armor loc:Deck
+1 Spidersilk Armor
+///mvid:370417 qty:1 name:Kodama's Reach loc:Deck
+1 Kodama's Reach
+///mvid:373650 qty:1 name:Nessian Asp loc:Deck
+1 Nessian Asp
+///mvid:369060 qty:1 name:Selesnya Cluestone loc:Deck
+1 Selesnya Cluestone
+///mvid:106575 qty:1 name:Streetbreaker Wurm loc:Deck
+1 Streetbreaker Wurm
+///mvid:153314 qty:1 name:Firespout loc:Deck
+1 Firespout
+///mvid:236907 qty:1 name:Solemn Simulacrum loc:Deck
+1 Solemn Simulacrum
